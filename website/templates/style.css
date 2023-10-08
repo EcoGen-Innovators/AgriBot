@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: greenyellow;
+}
+
+h1 {
+    margin: 20px;
+    word-spacing: 10px;
+}
+
+.form {
+    margin: auto;
+    margin-top: 20%;
+    padding: 30px;
+    width: 250px;
+    background-color: black;
+    border-radius: 9px;
+}
+
+.box {
+    /* background-color: black; */
+    margin: 10px;
+    padding: 4px;
+    width: 200px;
+    border: 50px;
+    /* text-transform: uppercase; */
+    border-radius: 7px;
+    /* align-items: center; */
+}
+
+.hide {
+    display: none;
+}
+
+.white {
+    background-color: whitesmoke;
+}

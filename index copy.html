@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AgriBot</title>
+    <link href="assets/css/app.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <!--! nav -->
+    <nav class="border-bottom border-dark py-3">
+      <div class="container-fluid px-5 hstack justify-content-between w-100">
+        <div class="logo"><a href="" class="hstack"><img src="assets/img/afro-map.svg" width="28" height="28" class="me-2" alt=""> AgriBot</a></div>
+        <div>          
+        </div>
+        <div>
+          <div class="hstack gap-3">
+            <button type="button" class="btn border fs-5" id="theme-switch"></button>
+            <div class="dropdown">
+              <button class="btn border fs-5 hstack gap-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-list"></i>
+                <i class="bi bi-person-circle"></i>
+              </button>
+              <ul class="dropdown-menu border-0 shadow">
+                <li><a class="dropdown-item" href="register.html">Sign up</a></li>
+                <li><a class="dropdown-item" href="login.html">Login</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#"><i class="bi bi-escape me-2"></i>Log out</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Content -->
+    <div class="container-fluid px-5 pt-4">
+      <div class="row flex-row-reverse">
+        <div class="col-md-4 my-3 my-md-0">
+          <div class="card border-0 bg-light">
+            <div class="card-body">
+              <div class="hstack justify-content-between">
+                <div class="hstack gap-2 fs-6 fw-normal mb-4">
+                  Weather 
+                </div>
+                <div class="hstack gap-2 fs-6 fw-normal mb-4">
+                  <div class="fs-6 fw-normal mb-0" id="cityName"></div>
+                  <div class="dropdown">
+                    <button class="bg-transparent fs-6 border-0 p-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="bi bi-geo-alt" title="Choose City"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-lg px-3">
+                      <div class="form-group">
+                        <label for="cityInput" class="small">Enter City Name:</label>
+                        <input type="text" class="form-control" id="cityInput" placeholder="City Name" required>
+                        <button class="btn cs-success text-white w-100 my-2" id="searchBtn">Search</button>
+                        <span class="lines hstack bg-opacity-75">or</span>
+                        <button class="bg-transparent border-0 text-body w-100 small" id="autoDetect">Auto-Detect Location</button>
+                      </div>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="weather-widget">
+                <div class="row row-cols-2 gy-4">
+                  <!-- Temperature -->
+                  <div class="col hstack">
+                    <div class="flex-shrink-0">
+                      <div class="icon-btn bg-opacity-75 cs-danger rounded-circle text-white"><i class="bi bi-thermometer-half"></i></div>
+                    </div>
+                    <div class="flex-grow-1 lh-1 ms-3">
+                      <div class="fs-5 fw-bold" id="temperature"></div>
+                      <span class="small">Temperature</span>
+                    </div>
+                  </div>
+                  <!-- Rain Precipitation -->
+                  <div class="col hstack">
+                    <div class="flex-shrink-0">
+                      <div class="icon-btn bg-opacity-75 cs-success rounded-circle text-white"><i class="bi bi-cloud-drizzle"></i></div>
+                    </div>
+                    <div class="flex-grow-1 lh-1 ms-3">
+                      <div class="fs-5 fw-bold" id="precipitation"></div>
+                      <span class="small">Precipitation</span>
+                    </div>
+                  </div>
+                  <!-- Wind -->
+                  <div class="col hstack">
+                    <div class="flex-shrink-0">
+                      <div class="icon-btn bg-opacity-75 cs-primary rounded-circle text-white"><i class="bi bi-wind"></i></div>
+                    </div>
+                    <div class="flex-grow-1 lh-1 ms-3">
+                      <div class="fs-5 fw-bold" id="wind"></div>
+                      <span class="small">Wind</span>
+                    </div>
+                  </div>
+                  <!-- Humidity -->
+                  <div class="col hstack">
+                    <div class="flex-shrink-0">
+                      <div class="icon-btn bg-opacity-75 cs-warning rounded-circle text-white"><i class="bi bi-droplet"></i></div>
+                    </div>
+                    <div class="flex-grow-1 lh-1 ms-3">
+                      <div class="fs-5 fw-bold" id="humidity"></div>
+                      <span class="small">Humidity</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>      
+          </div>
+          <div class="card border-0 bg-light my-3">
+            <div class="card-body">
+              <h1 class="fs-6 fw-normal">Daily Forecast</h1>
+              <div class="hstack justify-content-between">
+                <span class="small">Download a weekly precise forecast file [.PDF]</span>
+                <button type="button" class="btn btn-sm cs-success text-white">Download</button>
+              </div>
+            </div>
+          </div>
+          <div class="card border-0 bg-light">
+            <div class="card-body"></div>
+          </div>
+        </div>
+        <div class="col-md-8 h-100">
+          <div class="card border-0 bg-light">
+            <div class="card-body">Corps  can be grown at the current Weather</div>
+            <div class="cs-success py-2 px-3 text-white" id="matchingCrops">Result:</div>
+          </div>
+          <div class="row row-cols-2 row-cols-md-4 mt-4 gy-3 pb-5">
+            <div class="col">
+              <img src="assets/img/01.jpeg" class="u-img rounded-3" alt="">
+            </div>
+            <div class="col">
+              <img src="assets/img/02.jpeg" class="u-img rounded-3" alt="">
+            </div>
+            <div class="col">
+              <img src="assets/img/03.jpeg" class="u-img rounded-3" alt="">
+            </div>
+            <div class="col">
+              <img src="assets/img/04.jpeg" class="u-img rounded-3" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/weather.js"></script>
+    <script src="assets/js/theme.js"></script>
+  </body>
+</html>

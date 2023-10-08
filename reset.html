@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>AgriBot</title>
+        <link href="assets/css/app.css" rel="stylesheet" />
+    </head>
+    <body class="cs-c1 overflow-hidden">
+        <div class="container-fluid vh-100">
+            <div class="row row-cols-1 row-cols-md-2 h-100">
+                <div class="col h-100 hstack">
+                    <div class="h-95 w-100 rounded-4 bg-cover" style="background: url('assets/img/06.jpg');"></div>
+                </div>
+                <div class="col hstack text-center">
+                  <div class="d-block w-100">
+                    <div><img src="assets/img/logo/logo.png" class="img-fluid w-25" alt="" /></div>
+                    <div>
+                      <div class="w-60 m-auto" id="resetEmail">
+                        <div class="text-center mt-3 mb-5">
+                            <h1 class="fs-4 fw-bold">Forgot Your Password?</h1>
+                            <p class="mb-0 small">
+                                Don't worry! it accurs. Please enter the email address linked with your account.
+                            </p>
+                        </div>
+                        <form class="hstack align-items-end flex-column h-75" novalidate>
+                            <div class="w-100 mb-0 text-start position-relative mb-3">
+                                <label for="r-pw" class="form-label">Email</label>
+                                <input type="text" class="form-control form-control-lg fs-6 ps-5" id="r-pw" placeholder="Exp: john@agribot.io" />
+                                <div class="position-absolute top-50 mt-1 ms-3"><i class="bi bi-envelope-fill text-secondary"></i></div>
+                            </div>
+
+                            <button type="button" class="btn cs-success w-100 text-white" id="tglRpw">Send Code<i class="bi bi-arrow-right-short ms-1"></i></button>
+                            <span class="lines my-4">or</span>
+                            <small class="mt-auto w-100">Back to login screen<a href="login.html" class="fw-medium text-decoration-underline px-1">Login</a></small>
+                            <!--  -->
+                        </form>
+                    </div>
+                    <!-- Digits -->
+                    <div class="w-50 top-50 m-auto" id="otpCode">
+                        <h1 class="fs-4 fw-bold">OTP Verification</h1>
+                        <div class="mb-5">Enter the code generated on your mobile device below to log in!</div>
+                        <form method="get" action="new-pw.html" class="digit-group mb-4" data-group-name="digits" data-autosubmit="false" autocomplete="off">
+                            <input type="text" id="digit-1" name="digit-1" data-next="digit-2" autofocus/>
+                            <input type="text" id="digit-2" name="digit-2" data-next="digit-3" data-previous="digit-1" />
+                            <input type="text" id="digit-3" name="digit-3" data-next="digit-4" data-previous="digit-2" />
+                            <span class="splitter">&ndash;</span>
+                            <input type="text" id="digit-4" name="digit-4" data-next="digit-5" data-previous="digit-3" />
+                            <input type="text" id="digit-5" name="digit-5" data-next="digit-6" data-previous="digit-4" />
+                            <input type="text" id="digit-6" name="digit-6" data-previous="digit-5" />
+                            <div class="w-100 mt-4">
+                                <button type="submit" class="btn cs-success w-35 text-white">Verify<i class="bi bi-arrow-right-short ms-1"></i></button>                
+                            </div>
+                        </form>
+                        <small class="mt-auto w-100">Didn't receive the OTP Code?<button type="button" class="btn bg-transparent border-0 p-0 text-primary fw-medium text-decoration-underline px-1">Resend it</button></small>
+                    </div>
+                    </div>
+                  </div>                    
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/app.js"></script>
+    </body>
+</html>

@@ -1,0 +1,88 @@
+{
+    "crops": [
+      {
+        "name": "Maize (Corn)",
+        "weather_conditions": "24°C"
+      },
+      {
+        "name": "Maize (Corn)",
+        "weather_conditions": "Warm temperatures (20-30°C) and adequate rainfall"
+      },
+      {
+        "name": "Cassava",
+        "weather_conditions": "Tropical and subtropical regions with well-distributed rainfall and temperatures between 25-29°C"
+      },
+      {
+        "name": "Sorghum",
+        "weather_conditions": "Hot and dry conditions, with temperatures between 25-35°C"
+      },
+      {
+        "name": "Millet",
+        "weather_conditions": "Hot and dry climates with temperatures between 25-35°C"
+      },
+      {
+        "name": "Rice",
+        "weather_conditions": "Warm and humid conditions with temperatures between 20-35°C and ample water supply"
+      },
+      {
+        "name": "Beans",
+        "weather_conditions": "Warm climates with temperatures between 20-30°C and moderate rainfall"
+      },
+      {
+        "name": "Groundnuts (Peanuts)",
+        "weather_conditions": "Warm temperatures between 25-35°C and well-drained soils"
+      },
+      {
+        "name": "Tea",
+        "weather_conditions": "Tropical and subtropical highland regions with a cool climate and well-distributed rainfall"
+      },
+      {
+        "name": "Coffee",
+        "weather_conditions": "Highland regions with cool temperatures (15-24°C) and consistent rainfall"
+      },
+      {
+        "name": "Cocoa",
+        "weather_conditions": "Tropical rainforest regions with temperatures between 21-26°C and high humidity"
+      },
+      {
+        "name": "Yams",
+        "weather_conditions": "Tropical climates with temperatures between 25-30°C and well-drained fertile soils"
+      },
+      {
+        "name": "Plantains",
+        "weather_conditions": "Tropical regions with temperatures between 20-30°C and abundant rainfall"
+      },
+      {
+        "name": "Pineapples",
+        "weather_conditions": "Tropical climates with temperatures between 20-32°C and well-drained soils"
+      },
+      {
+        "name": "Bananas",
+        "weather_conditions": "Warm and humid conditions with temperatures between 25-30°C and regular rainfall"
+      },
+      {
+        "name": "Palm Oil",
+        "weather_conditions": "Tropical climate with temperatures above 25°C and well-distributed rainfall"
+      },
+      {
+        "name": "Sugarcane",
+        "weather_conditions": "Tropical and subtropical regions with temperatures between 20-35°C and ample water supply"
+      },
+      {
+        "name": "Cotton",
+        "weather_conditions": "Warm temperatures between 20-30°C and well-irrigated soils"
+      },
+      {
+        "name": "Tomatoes",
+        "weather_conditions": "Warm climates with temperatures between 20-30°C and moderate rainfall"
+      },
+      {
+        "name": "Onions",
+        "weather_conditions": "Cool temperatures between 15-25°C and well-drained fertile soils"
+      },
+      {
+        "name": "Sweet Potatoes",
+        "weather_conditions": "Warm climates with temperatures between 20-30°C and loose, well-drained soil"
+      }
+    ]
+  }

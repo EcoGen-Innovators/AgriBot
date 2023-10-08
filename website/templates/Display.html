@@ -1,0 +1,67 @@
+{% extends "base.html" %} {%block content%}Crop Prediction Result{% endblock%} {%block body%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AgriBot</title>
+    <link href="/assets/css/app.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid px-5 pt-5">
+        <div class="card bg-light border-0 rounded-4 form px-4 mx-auto">
+            <div class="card-body py-5">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">N Level (in kg/hectre)</th>
+                            <th scope="col">P Level (in kg/hectre)</th>
+                            <th scope="col">K Level (in kg/hectre)</th>
+                            <th scope="col">Humidity (in %)</th>
+                            <th scope="col">Temperature (in deg celsius)</th>
+                            <th scope="col">Rainfall (in mm)</th>
+                            <th scope="col">PH</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            {%for i in values:%}
+                            <td>{{i}}</td>
+                            {%endfor%}
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table mt-4 mb-5">
+                    <thead>
+                        <tr>
+                            <th>Nitrogen Level</th>
+                            <th>Phosphorous Level</th>
+                            <th>potassium Level</th>
+                            <th>Humidity </th>
+                            <th>Temperature</th>
+                            <th>Rainfall </th>
+                            <th>PH Level</th>
+                        </tr>
+                    </thead>
+                    <tbody>            
+                        <tr>
+                            {%for i in cont:%}
+                            <td>{{i}}</td>
+                            {%endfor%}
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="py-2 w-50 mx-auto cs-success rounded-3">
+                    <h1 class="fs-5 text-center mb-0">Best crop to grow in this condition is <span class="fw-bold">{{ cropName}}</span></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock%}
+    </table>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <script src="/assets/js/weather.js"></script>
+    <script src="/assets/js/theme.js"></script>
+</body>
+</html>
