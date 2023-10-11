@@ -182,7 +182,7 @@ getWeatherDataByLocation();
 /* -------------------------------------------------------------------------- */
 async function fetchCropData() {
   try {
-    const response = await fetch('assets/js/corps.json'); // Replace with the actual path to your JSON file
+    const response = await fetch('/static/assets/js/corps.json'); // Replace with the actual path to your JSON file
     const cropData = await response.json();
 
     // Return the fetched crop data

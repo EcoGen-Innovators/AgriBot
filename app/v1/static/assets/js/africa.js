@@ -1,5 +1,5 @@
 const endpoint = 'https://restcountries.eu/rest/v3/';
-const flagsEndpoint = 'assets/js/flag.json'; // Replace with the correct path to your flags.json file
+const flagsEndpoint = '/static/assets/js/flag.json'; // Replace with the correct path to your flags.json file
 
 // Function to load flags.json
 async function loadFlags() {
