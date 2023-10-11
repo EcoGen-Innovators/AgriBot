@@ -96,7 +96,7 @@
         </div>
         <div class="col h-65 h-md-100 bg-secondary rounded-4 overflow-auto">
           <div class="tab-content py-4 p-md-4 h-100" id="pills-tabContent">
-            <div class="tab-pane fade pb-4 position-relative h-100 show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+            <div class="tab-pane fade pb-4 position-relative h-100" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
               
             </div>
             <div class="tab-pane fade pb-4" id="pills-weather" role="tabpanel" aria-labelledby="pills-weather-tab" tabindex="0">
@@ -180,7 +180,7 @@
                 <canvas id="hourlyChart" width="400" height="200"></canvas>
               </div>
             </div>
-            <div class="tab-pane fade pb-4 h-" id="pills-togrow" role="tabpanel" aria-labelledby="pills-togrow-tab" tabindex="0">
+            <div class="tab-pane fade pb-4" id="pills-togrow" role="tabpanel" aria-labelledby="pills-togrow-tab" tabindex="0">
               <div class="container h-100">        
                 <form action="/login" method="post" class="bg-dark p-4 rounded-4 mb-4">
                     <!-- Name:
@@ -245,7 +245,7 @@
                 </div>
             </div>
             </div>
-            <div class="tab-pane fade pb-4" id="pills-disease" role="tabpanel" aria-labelledby="pills-disease-tab" tabindex="0">
+            <div class="tab-pane fade pb-4 " id="pills-disease" role="tabpanel" aria-labelledby="pills-disease-tab" tabindex="0">
                 <div class="container pt-5">
                   <div class="mb-4">
                     <label for="plantName" class="mb-2">Enter a plant name to lunch the search</label>
@@ -254,7 +254,7 @@
                   <div class="bg-dark rounded-3 vh-50 p-3">No Resutl</div>
                 </div>
             </div>
-            <div class="tab-pane fade pb-4 h-100" id="pills-afromap" role="tabpanel" aria-labelledby="pills-afromap-tab">              
+            <div class="tab-pane fade show active pb-4 h-100" id="pills-afromap" role="tabpanel" aria-labelledby="pills-afromap-tab">              
             <div class="container h-100 d-flex align-content-between flex-wrap">
               <div class="row w-100">
                 <div class="col">
@@ -291,6 +291,7 @@
                         </div>
                       </div>
                     </div>
+                    
                   </div>
                 </div>                            
                 <div class="col-9">
@@ -464,11 +465,15 @@
                 </div>  
                 </div>                            
               </div>
-              
-
-              
-
-
+              <!-- ? Crops -->
+              <div class="d-grid w-100">
+                <h1 class="small">Top 10 crops</h1>
+                <div class="card border-0">
+                  <div class="card-body">
+                  <div id="ccorps" class="h-100">N/A</div>
+                </div>
+              </div>
+              </div>
             </div>
             </div>
           </div>
