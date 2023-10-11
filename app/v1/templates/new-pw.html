@@ -4,25 +4,25 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>AgriBot</title>
-        <link href="assets/css/app.css" rel="stylesheet" />
+        <link href="/static/assets/css/app.css" rel="stylesheet" />
     </head>
     <body class="cs-c1 overflow-hidden">
        
         <div class="container-fluid vh-100">
           <div class="row row-cols-1 row-cols-md-2 h-100">
             <div class="col h-100 hstack">
-              <div class="h-95 w-100 rounded-4 bg-cover" style="background: url('assets/img/08.jpg');"></div>
+              <div class="h-95 w-100 rounded-4 bg-cover" style="background: url('/static/assets/img/08.jpg');"></div>
           </div>
             <div class="col hstack text-center">
               <div class="w-60 m-auto">
                 <div class="text-center mt-3 mb-5">
-                  <img src="assets/img/logo/logo.png" class="img-fluid w-25" alt="">
+                  <img src="/static/assets/img/logo/logo.png" class="img-fluid w-25" alt="">
                   <h1 class="fs-4 fw-bold">Set-up your new password</h1>
                   <p class="mb-0 small">
                       Enter your new <span class="fw-bold">PASSWORD</span> !
                   </p>
               </div>
-              <form class="hstack align-items-end flex-column h-75" novalidate>
+              <form action="/" class="hstack align-items-end flex-column h-75" novalidate>
                  
                   <div class="w-100 my-3 text-start position-relative">
                       <label for="new-pass" class="form-label">New Password</label>
@@ -52,7 +52,7 @@
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/js/app.js"></script>
-        <script src="assets/js/validate.js"></script>
+        <script src="/static/assets/js/app.js"></script>
+        <script src="/static/assets/js/validate.js"></script>
     </body>
 </html>
