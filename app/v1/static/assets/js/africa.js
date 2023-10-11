@@ -32,6 +32,7 @@ async function updateCountryInfo(countryCode) {
   document.querySelector('#name').innerHTML = `<div>${country["Country Name"]}</div>`;
   document.querySelector('#capital').innerHTML = `<div>${country["Capital"]}</div>`;
   document.querySelector('#currency').innerHTML = `<div>${country["Currency"]}</div>`;
+  document.querySelector('#ccorps').innerHTML = `<div>${country["ccorps"]}</div>`;
 
   // Load and set the flag image from the new JSON data
   const flagsData = await loadFlags();
@@ -81,7 +82,8 @@ const africanCountries =
     "Currency": "Algerian dinar",
     "Country Flag": "🇩🇿",
     "Internet users": 4700000,
-    "Population": 38813722
+    "Population": 38813722,
+    "ccorps": ["Wheat", "Barley", "Oats", "Grapes", "Tomatoes", "Potatoes", "Dates", "Olives", "Citrus fruits", "Pistachios"],
   },
   "AO": {
     "Country Name": "Angola",
@@ -91,7 +93,7 @@ const africanCountries =
     "Currency": "Angolan kwanza",
     "Country Flag": "🇦🇴",
     "Internet users": 606700,
-    "Population": 19088106
+    "ccorps": ["Maize", "Cassava", "Sweet Potatoes", "Beans", "Rice", "Sorghum", "Groundnuts", "Bananas", "Coffee", "Tea"],
   },
   "BJ": {
     "Country Name": "Benin",
@@ -101,7 +103,8 @@ const africanCountries =
     "Currency": "West African CFA franc",
     "Country Flag": "🇧🇯",
     "Internet users": 200100,
-    "Population": 10160556
+    "Population": 10160556,
+    "ccorps": ["Cassava", "Yams", "Maize", "Sorghum", "Millet", "Rice", "Cotton", "Cocoa", "Palm Oil", "Rubber"],
   },
   "BW": {
     "Country Name": "Botswana",
@@ -111,7 +114,8 @@ const africanCountries =
     "Currency": "Botswana pula",
     "Country Flag": "🇧🇼",
     "Internet users": 120000,
-    "Population": 2155784
+    "Population": 2155784,
+    "ccorps": ["Maize", "Sorghum", "Millets", "Groundnuts", "Beans", "Sesame", "Sorghum", "Soybeans", "Sunflower", "Cotton"],
   },
   "BF": {
     "Country Name": "Burkina Faso",
@@ -121,7 +125,8 @@ const africanCountries =
     "Currency": "West African CFA franc",
     "Country Flag": "🇧🇫",
     "Internet users": 178100,
-    "Population": 18365123
+    "Population": 18365123,
+    "ccorps": ["Millet", "Sorghum", "Maize", "Rice", "Cowpeas", "Groundnuts", "Cotton", "Sesame", "Sorghum", "Maize"],
   },
   "BI": {
     "Country Name": "Burundi",
@@ -131,7 +136,8 @@ const africanCountries =
     "Currency": "Burundi franc",
     "Country Flag": "🇧🇮",
     "Internet users": 157800,
-    "Population": 10395931
+    "Population": 10395931,
+    "ccorps": ["Bananas", "Maize", "Beans", "Sweet Potatoes", "Cassava", "Irish Potatoes", "Sorghum", "Rice", "Wheat", "Coffee"],
   },
   "CV": {
     "Country Name": "Cabo Verde",
@@ -141,7 +147,8 @@ const africanCountries =
     "Currency": "Cape Verdean escudo",
     "Country Flag": "🇨🇻",
     "Internet users": 150000,
-    "Population": 538535
+    "Population": 538535,
+    "ccorps": ["Maize", "Beans", "Sweet Potatoes", "Manioc", "Potatoes", "Peanuts", "Sugarcane", "Bananas", "Taro", "Sorghum"],
   },
   "CM": {
     "Country Name": "Cameroon",
@@ -151,7 +158,8 @@ const africanCountries =
     "Currency": "Central African CFA franc",
     "Country Flag": "🇨🇲",
     "Internet users": 749600,
-    "Population": 23130708
+    "Population": 23130708,
+    "ccorps": ["Cassava", "Plantains", "Maize", "Cocoa", "Coffee", "Rubber", "Bananas", "Oil Palm", "Sorghum", "Rice"],
   },
   "CF": {
     "Country Name": "Central African Republic",
@@ -161,7 +169,8 @@ const africanCountries =
     "Currency": "Central African CFA franc",
     "Country Flag": "🇨🇫",
     "Internet users": 22600,
-    "Population": 5277959
+    "Population": 5277959,
+    "ccorps": ["Cassava", "Maize", "Millet", "Sorghum", "Bananas", "Cocoa", "Coffee", "Groundnuts", "Oil Palm", "Sesame"],
   },
   "TD": {
     "Country Name": "Chad",
@@ -171,7 +180,8 @@ const africanCountries =
     "Currency": "Central African CFA franc",
     "Country Flag": "🇹🇩",
     "Internet users": 168100,
-    "Population": 11412107
+    "Population": 11412107,
+    "ccorps": ["Sorghum", "Millet", "Maize", "Groundnuts", "Sesame", "Cowpeas", "Cotton", "Sorghum", "Rice", "Millet"],
   },
   "KM": {
     "Country Name": "Comoros",
@@ -181,7 +191,8 @@ const africanCountries =
     "Currency": "Comorian franc",
     "Country Flag": "🇰🇲",
     "Internet users": 24300,
-    "Population": 766865
+    "Population": 766865,
+    "ccorps": ["Yams", "Cassava", "Bananas", "Sweet Potatoes", "Coconuts", "Rice", "Manioc", "Vanilla", "Cloves", "Coffee"],
   },
   "CD": {
     "Country Name": "Democratic Republic of the Congo",
@@ -191,7 +202,8 @@ const africanCountries =
     "Currency": "Congolese franc",
     "Country Flag": "🇨🇩",
     "Internet users": 290000,
-    "Population": 77433744
+    "Population": 77433744,
+    "ccorps": ["Cassava", "Maize", "Plantains", "Cocoa", "Coffee", "Palm Oil", "Rubber", "Cassava", "Sorghum", "Rice"],
   },
   "CG": {
     "Country Name": "Republic of the Congo",
@@ -201,7 +213,8 @@ const africanCountries =
     "Currency": "Central African CFA franc",
     "Country Flag": "🇨🇬",
     "Internet users": 245200,
-    "Population": 4662446
+    "Population": 4662446,
+    "ccorps": ["Maize", "Cassava", "Rice", "Plantains", "Sorghum", "Soybeans", "Groundnuts", "Bananas", "Coffee", "Cocoa"],
   },
   "CI": {
     "Country Name": "Cote D'Ivoire",
@@ -211,7 +224,8 @@ const africanCountries =
     "Currency": "West African CFA franc",
     "Country Flag": "🇨🇮",
     "Internet users": 967300,
-    "Population": 22848945
+    "Population": 22848945,
+    "ccorps": ["Cocoa", "Coffee", "Rubber", "Oil Palm", "Cotton", "Cashews", "Sorghum", "Rice", "Maize", "Yams"]
   },
   "DJ": {
     "Country Name": "Djibouti",
@@ -221,7 +235,8 @@ const africanCountries =
     "Currency": "Djiboutian franc",
     "Country Flag": "🇩🇯",
     "Internet users": 25900,
-    "Population": 810179
+    "Population": 810179,
+    "ccorps": ["Sorghum", "Barley", "Wheat", "Maize", "Potatoes", "Sweet Potatoes", "Khat", "Dates", "Citrus fruits", "Tomatoes"],
   },
   "EG": {
     "Country Name": "Egypt",
@@ -231,7 +246,8 @@ const africanCountries =
     "Currency": "Egyptian Pound",
     "Country Flag": "🇪🇬",
     "Internet users": 20136000,
-    "Population": 86895099
+    "Population": 86895099,
+    "ccorps": ["Wheat", "Rice", "Corn", "Barley", "Cotton", "Tomatoes", "Pears", "Figs", "Grapes", "Pomegranates"],
   },
   "GQ": {
     "Country Name": "Equatorial Guinea",
@@ -241,7 +257,8 @@ const africanCountries =
     "Currency": "Central African CFA franc",
     "Country Flag": "🇬🇶",
     "Internet users": 14400,
-    "Population": 722254
+    "Population": 722254,
+    "ccorps": ["Cocoa", "Oil Palm", "Cassava", "Plantains", "Bananas", "Coconuts", "Cocoa", "Coffee", "Palm Kernels", "Rice"],
   },
   "ER": {
     "Country Name": "Eritrea",
@@ -251,7 +268,8 @@ const africanCountries =
     "Currency": "Eritrean nakfa",
     "Country Flag": "🇪🇷",
     "Internet users": 200000,
-    "Population": 6380803
+    "Population": 6380803,
+    "ccorps": ["Sorghum", "Maize", "Barley", "Wheat", "Teff", "Lentils", "Chickpeas", "Bananas", "Grapes", "Citrus fruits"],
   },
   "ET": {
     "Country Name": "Ethiopia",
@@ -261,7 +279,8 @@ const africanCountries =
     "Currency": "Ethiopian birr",
     "Country Flag": "🇪🇹",
     "Internet users": 447300,
-    "Population": 96633458
+    "Population": 96633458,
+    "ccorps": ["Maize", "Teff", "Sorghum", "Barley", "Wheat", "Beans", "Maize", "Coffee", "Oilseeds", "Pulses"],
   },
   "GA": {
     "Country Name": "Gabon",
@@ -271,7 +290,8 @@ const africanCountries =
     "Currency": "Central African CFA franc",
     "Country Flag": "🇬🇦",
     "Internet users": 98800,
-    "Population": 1672597
+    "Population": 1672597,
+    "ccorps": ["Cocoa", "Oil Palm", "Rubber", "Bananas", "Plantains", "Cassava", "Sweet Potatoes", "Cocoa", "Oilseeds", "Rice"],
   },
   "GH": {
     "Country Name": "Ghana",
@@ -281,7 +301,8 @@ const africanCountries =
     "Currency": "Ghanaian cedi",
     "Country Flag": "🇬🇭",
     "Internet users": 1297000,
-    "Population": 25758108
+    "Population": 25758108,
+    "ccorps": ["Cocoa", "Maize", "Cassava", "Yams", "Plantains", "Oil Palm", "Rice", "Sorghum", "Millet", "Groundnuts"],
   },
   "GM": {
     "Country Name": "Gambia",
@@ -291,7 +312,8 @@ const africanCountries =
     "Currency": "Dalasi",
     "Country Flag": "🇬🇲",
     "Internet users": null,
-    "Population": 1857181
+    "Population": 1857181,
+    "ccorps": ["Groundnuts", "Millets", "Sorghum", "Maize", "Rice", "Cowpeas", "Cassava", "Potatoes", "Sweet Potatoes", "Cotton"],
   },
   "GN": {
     "Country Name": "Guinea",
@@ -301,7 +323,8 @@ const africanCountries =
     "Currency": "Guinean franc",
     "Country Flag": "🇬🇳",
     "Internet users": 95000,
-    "Population": 11474383
+    "Population": 11474383,
+    "ccorps": ["Rice", "Maize", "Millet", "Sorghum", "Cassava", "Sweet Potatoes", "Groundnuts", "Bananas", "Coffee", "Palm Kernels"],
   },
   "GW": {
     "Country Name": "Guinea-Bissau",
@@ -311,7 +334,8 @@ const africanCountries =
     "Currency": "West African CFA franc",
     "Country Flag": "🇬🇼",
     "Internet users": 37100,
-    "Population": 1693398
+    "Population": 1693398,
+    "ccorps": ["Rice", "Maize", "Millet", "Sorghum", "Cassava", "Sweet Potatoes", "Groundnuts", "Cashews", "Cotton", "Oil Palm"],
   },
   "KE": {
     "Country Name": "Kenya",
@@ -321,7 +345,8 @@ const africanCountries =
     "Currency": "Kenyan shilling",
     "Country Flag": "🇰🇪",
     "Internet users": 3996000,
-    "Population": 45010056
+    "Population": 45010056,
+    "ccorps": ["Maize", "Sorghum", "Millet", "Wheat", "Rice", "Potatoes", "Beans", "Coffee", "Tea", "Cotton"],
   },
   "LS": {
     "Country Name": "Lesotho",
@@ -331,7 +356,8 @@ const africanCountries =
     "Currency": "Lesotho loti",
     "Country Flag": "🇱🇸",
     "Internet users": 76800,
-    "Population": 1942008
+    "Population": 1942008,
+    "ccorps": ["Maize", "Sorghum", "Wheat", "Barley", "Potatoes", "Beans", "Peas", "Fruits", "Vegetables", "Cattle"],
   },
   "LR": {
     "Country Name": "Liberia",
@@ -341,7 +367,8 @@ const africanCountries =
     "Currency": "Liberian Dollar",
     "Country Flag": "🇱🇷",
     "Internet users": 20000,
-    "Population": 4092310
+    "Population": 4092310,
+    "ccorps": ["Rice", "Cassava", "Sweet Potatoes", "Yams", "Plantains", "Rubber", "Cocoa", "Coffee", "Oil Palm", "Sugarcane"],
   },
   "LY": {
     "Country Name": "Libya",
@@ -351,7 +378,8 @@ const africanCountries =
     "Currency": "Libyan dinar",
     "Country Flag": "🇱🇾",
     "Internet users": 353900,
-    "Population": 6244174
+    "Population": 6244174,
+    "ccorps": ["Wheat", "Barley", "Oats", "Dates", "Citrus fruits", "Olives", "Potatoes", "Tomatoes", "Cucumbers", "Onions"],
   },
   "MG": {
     "Country Name": "Madagascar",
@@ -361,7 +389,8 @@ const africanCountries =
     "Currency": "Malagasy ariary",
     "Country Flag": "🇲🇬",
     "Internet users": 319900,
-    "Population": 23201926
+    "Population": 23201926,
+    "ccorps": ["Rice", "Cassava", "Sweet Potatoes", "Bananas", "Cattle", "Cattle", "Vanilla", "Clove", "Ginger", "Pepper"],
   },
   "MW": {
     "Country Name": "Malawi",
@@ -371,7 +400,8 @@ const africanCountries =
     "Currency": "Malawian kwacha",
     "Country Flag": "🇲🇼",
     "Internet users": 716400,
-    "Population": 17377468
+    "Population": 17377468,
+    "ccorps": ["Maize", "Cassava", "Rice", "Groundnuts", "Sorghum", "Tea", "Sugarcane", "Cotton", "Tobacco", "Coffee"],
   },
   "ML": {
     "Country Name": "Mali",
@@ -381,7 +411,8 @@ const africanCountries =
     "Currency": "West African CFA franc",
     "Country Flag": "🇲🇱",
     "Internet users": 249800,
-    "Population": 16455903
+    "Population": 16455903,
+    "ccorps": ["Millet", "Sorghum", "Maize", "Rice", "Cowpeas", "Groundnuts", "Sesame", "Sorghum", "Cotton", "Soybeans"],
   },
   "MR": {
     "Country Name": "Mauritania",
@@ -391,7 +422,8 @@ const africanCountries =
     "Currency": "Mauritanian ouguiya",
     "Country Flag": "🇲🇷",
     "Internet users": 75000,
-    "Population": 3516806
+    "Population": 3516806,
+    "ccorps": ["Dates", "Millet", "Sorghum", "Maize", "Rice", "Cowpeas", "Groundnuts", "Cattle", "Sheep", "Goats"],
   },
   "MU": {
     "Country Name": "Mauritius",
@@ -401,7 +433,8 @@ const africanCountries =
     "Currency": "Mauritian rupee",
     "Country Flag": "🇲🇺",
     "Internet users": 290000,
-    "Population": 1331155
+    "Population": 1331155,
+    "ccorps": ["Sugarcane", "Tea", "Maize", "Potatoes", "Bananas", "Cattle", "Cattle", "Cattle", "Cattle", "Cattle"],
   },
   "MA": {
     "Country Name": "Morocco",
@@ -411,7 +444,8 @@ const africanCountries =
     "Currency": "Moroccan dirham",
     "Country Flag": "🇲🇦",
     "Internet users": 13213000,
-    "Population": 32987206
+    "Population": 32987206,
+    "ccorps": ["Wheat", "Barley", "Corn", "Rice", "Cotton", "Olives", "Citrus fruits", "Grapes", "Tomatoes", "Potatoes"],
   },
   "MZ": {
     "Country Name": "Mozambique",
@@ -421,7 +455,8 @@ const africanCountries =
     "Currency": "Mozambican metical",
     "Country Flag": "🇲🇿",
     "Internet users": 613600,
-    "Population": 24692144
+    "Population": 24692144,
+    "ccorps": ["Maize", "Sorghum", "Rice", "Cassava", "Sweet Potatoes", "Beans", "Groundnuts", "Cashews", "Coconuts", "Tea"],
   },
   "NA": {
     "Country Name": "Namibia",
@@ -431,7 +466,8 @@ const africanCountries =
     "Currency": "Namibian Dollar",
     "Country Flag": "🇳🇦",
     "Internet users": 127500,
-    "Population": 2198406
+    "Population": 2198406,
+    "ccorps": ["Millets", "Maize", "Sorghum", "Wheat", "Barley", "Groundnuts", "Grapes", "Dates", "Olives", "Oranges"],
   },
   "NE": {
     "Country Name": "Niger",
@@ -441,7 +477,8 @@ const africanCountries =
     "Currency": "West African CFA franc",
     "Country Flag": "🇳🇪",
     "Internet users": 115900,
-    "Population": 17466172
+    "Population": 17466172,
+    "ccorps": ["Millet", "Sorghum", "Cowpeas", "Groundnuts", "Rice", "Maize", "Cassava", "Sesame", "Sorghum", "Rice"],
   },
   "NG": {
     "Country Name": "Nigeria",
@@ -451,7 +488,8 @@ const africanCountries =
     "Currency": "Nigerian naira",
     "Country Flag": "🇳🇬",
     "Internet users": 43989000,
-    "Population": 200963599
+    "Population": 200963599,
+    "ccorps": ["Cassava", "Maize", "Rice", "Yam", "Sorghum", "Millet", "Groundnut", "Cocoa", "Palm Oil", "Plantains"],
   },
   "RW": {
     "Country Name": "Rwanda",
@@ -461,7 +499,8 @@ const africanCountries =
     "Currency": "Rwandan franc",
     "Country Flag": "🇷🇼",
     "Internet users": 450000,
-    "Population": 12337138
+    "Population": 12337138,
+    "ccorps": ["Bananas", "Maize", "Potatoes", "Cassava", "Sweet Potatoes", "Beans", "Rice", "Wheat", "Coffee", "Tea"],
   },
   "ST": {
     "Country Name": "Sao Tome And Principe",
@@ -471,7 +510,8 @@ const africanCountries =
     "Currency": "Sao Tome and Principe dobra",
     "Country Flag": "🇸🇹",
     "Internet users": 26700,
-    "Population": 190428
+    "Population": 190428,
+    "ccorps": ["Cocoa", "Coconuts", "Oil Palm", "Bananas", "Sweet Potatoes", "Yams", "Cassava", "Maize", "Pepper", "Cattle"],
   },
   "SN": {
     "Country Name": "Senegal",
@@ -481,7 +521,8 @@ const africanCountries =
     "Currency": "West African CFA franc",
     "Country Flag": "🇸🇳",
     "Internet users": 1818000,
-    "Population": 13635927
+    "Population": 13635927,
+    "ccorps": ["Cocoa", "Coconuts", "Oil Palm", "Bananas", "Sweet Potatoes", "Yams", "Cassava", "Maize", "Pepper", "Cattle"],
   },
   "SC": {
     "Country Name": "Seychelles",
@@ -491,7 +532,8 @@ const africanCountries =
     "Currency": "Seychellois rupee",
     "Country Flag": "🇸🇨",
     "Internet users": 32000,
-    "Population": 91650
+    "Population": 91650,
+    "ccorps": ["Cinnamon", "Vanilla", "Copra", "Coconuts", "Sweet Potatoes", "Yams", "Breadfruits", "Fishing", "Fruits", "Vegetables"],
   },
   "SL": {
     "Country Name": "Sierra Leone",
@@ -501,7 +543,8 @@ const africanCountries =
     "Currency": "Sierra Leonean leone",
     "Country Flag": "🇸🇱",
     "Internet users": 14900,
-    "Population": 5743725
+    "Population": 5743725,
+    "ccorps": ["Rice", "Cassava", "Sweet Potatoes", "Yams", "Plantains", "Cocoa", "Coffee", "Palm Oil", "Rubber", "Sugarcane"],
   },
   "SO": {
     "Country Name": "Somalia",
@@ -511,7 +554,8 @@ const africanCountries =
     "Currency": "Somali shilling",
     "Country Flag": "🇸🇴",
     "Internet users": 106000,
-    "Population": 10428043
+    "Population": 10428043,
+    "ccorps": ["Bananas", "Maize", "Sorghum", "Sugarcane", "Coconuts", "Sesame", "Sorghum", "Cassava", "Sweet Potatoes", "Millet"],
   },
   "ZA": {
     "Country Name": "South Africa",
@@ -531,7 +575,8 @@ const africanCountries =
     "Currency": "South Sudanese Pound",
     "Country Flag": "🇸🇸",
     "Internet users": null,
-    "Population": 11562695
+    "Population": 11562695,
+    "ccorps": ["Sorghum", "Maize", "Millet", "Wheat", "Groundnuts", "Sesame", "Sorghum", "Cassava", "Maize", "Millet"],
   },
   "SD": {
     "Country Name": "Sudan",
@@ -541,7 +586,8 @@ const africanCountries =
     "Currency": "Sudanese Pound",
     "Country Flag": "🇸🇩",
     "Internet users": 4200000,
-    "Population": 35482233
+    "Population": 35482233,
+    "ccorps": ["Sorghum", "Millet", "Maize", "Wheat", "Groundnuts", "Sesame", "Sorghum", "Cassava", "Rice", "Sugarcane"],
   },
   "SZ": {
     "Country Name": "Eswatini",
@@ -551,7 +597,8 @@ const africanCountries =
     "Currency": "Swazi lilangeni",
     "Country Flag": "🇸🇿",
     "Internet users": 90100,
-    "Population": 1419623
+    "Population": 1419623,
+    "ccorps": ["Maize", "Sorghum", "Sugarcane", "Pineapples", "Cotton", "Tobacco", "Citrus fruits", "Bananas", "Grapes", "Cassava"],
   },
   "TZ": {
     "Country Name": "Tanzania",
@@ -561,7 +608,8 @@ const africanCountries =
     "Currency": "Tanzanian shilling",
     "Country Flag": "🇹🇿",
     "Internet users": 678000,
-    "Population": 49639138
+    "Population": 49639138,
+    "ccorps": ["Maize", "Sorghum", "Millet", "Rice", "Cassava", "Sweet Potatoes", "Bananas", "Cashews", "Coffee", "Sisal"],
   },
   "TG": {
     "Country Name": "Togo",
@@ -571,7 +619,8 @@ const africanCountries =
     "Currency": "West African CFA franc",
     "Country Flag": "🇹🇬",
     "Internet users": 356300,
-    "Population": 7351374
+    "Population": 7351374,
+    "ccorps": ["Cassava", "Yams", "Maize", "Sorghum", "Millet", "Rice", "Cotton", "Cocoa", "Palm Oil", "Rubber"],
   },
   "TN": {
     "Country Name": "Tunisia",
@@ -581,7 +630,8 @@ const africanCountries =
     "Currency": "Tunisian dinar",
     "Country Flag": "🇹🇳",
     "Internet users": 3500000,
-    "Population": 10937521
+    "Population": 10937521,
+    "ccorps": ["Wheat", "Barley", "Oats", "Dates", "Citrus fruits", "Grapes", "Tomatoes", "Potatoes", "Olives", "Cucumbers"],
   },
   "UG": {
     "Country Name": "Uganda",
@@ -591,7 +641,20 @@ const africanCountries =
     "Currency": "Ugandan shilling",
     "Country Flag": "🇺🇬",
     "Internet users": 3200000,
-    "Population": 35918915
+    "Population": 35918915,
+    "ccorps": ["Bananas", "Maize", "Cassava", "Sweet Potatoes", "Beans", "Sorghum", "Groundnuts", "Coffee", "Tea", "Cotton"],
+
+  },
+  "ZA": {
+    "Country Name": "South Africa",
+    "Calling Code": 27,
+    "Official Language": "IsiZulu",
+    "Capital": "Pretoria / Cape Town",
+    "Currency": "South African rand",
+    "Country Flag": "🇿🇦",
+    "Internet users": 4420000,
+    "Population": 48375645,
+    "ccorps": ["Maize", "Sugarcane", "Wheat", "Barley", "Sunflowers", "Sorghum", "Potatoes", "Citrus fruits", "Grapes", "Apples"],
   },
   "ZM": {
     "Country Name": "Zambia",
@@ -601,7 +664,8 @@ const africanCountries =
     "Currency": "Zambian kwacha",
     "Country Flag": "🇿🇲",
     "Internet users": 816200,
-    "Population": 14638505
+    "Population": 14638505,
+    "ccorps": ["Maize", "Sorghum", "Millet", "Cassava", "Groundnuts", "Rice", "Wheat", "Soybeans", "Sunflower", "Cotton"],
   },
   "ZW": {
     "Country Name": "Zimbabwe",
@@ -611,16 +675,19 @@ const africanCountries =
     "Currency": "United States Dollar",
     "Country Flag": "🇿🇼",
     "Internet users": 1423000,
-    "Population": 13771721
+    "Population": 13771721,
+    "ccorps": ["Maize", "Sorghum", "Millet", "Cotton", "Tobacco", "Wheat", "Coffee", "Sugarcane", "Groundnuts", "Sunflower"]
+
   },
    "RE": {
      "Country Name": "Réunion Island",
-    "Capital": "Saint-Denis",
-    "Currency": "Euro",
-    "Country Flag": "🇷🇪"
+      "Capital": "Saint-Denis",
+      "Currency": "Euro",
+      "Country Flag": "🇷🇪"
     },
-             "YT": {
-             "Country Name": "Mayotte",
+    "YT": {
+    "Population": 13771721
+    "Country Name": "Mayotte",
     "Capital": "Mamoudzou",
     "Currency": "Euro",
     "Country Flag":"🇾🇹"
