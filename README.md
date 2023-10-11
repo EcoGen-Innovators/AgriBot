@@ -20,7 +20,7 @@ Other Files:
 - `register.html`: The HTML file for the registration page.
 - `website/`: This directory contains website-related files.
 
-# Crop-Recommendation
+## Crop-Recommendation
 
 Crop Recommendation - DAC Project
 
@@ -44,7 +44,7 @@ The dataset contains 2200 rows and 8 cloumns. The values of columns 1 to 7 ['N',
 - ph - ph value of the soil
 - Rainfall - rainfall in mm
 
-#### Target variable: Crop
+## Target variable: Crop
 
 ## Model
 
