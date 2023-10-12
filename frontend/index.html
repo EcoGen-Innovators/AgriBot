@@ -30,7 +30,7 @@
               </div>
               <button type="button" class="btn bg-secondary" id="theme-switch"></button>
             </div>
-            <button type="button" class="btn border-0 btn-danger" id="early-warning"><i class="bi bi-moisture"></i></button>
+            <button type="button" class="btn border-0 btn-danger"><i class="bi bi-moisture"></i></button>
           </nav>
           <div class="container w-md-75 mx-auto mt-5 mt-md-0 px-md-5 hstack h-100">
            <div class="d-grid gap-5 w-100">
@@ -66,7 +66,7 @@
                   </button>
                 </li>
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link icon-btn-lg bg-secondary mx-auto" id="pills-disease-tab" data-bs-toggle="pill" data-bs-target="#pills-disease" type="button" role="tab" aria-controls="pills-disease" aria-selected="false">
+                  <button class="nav-link icon-btn-lg bg-secondary mx-auto" id="pills-plants-tab" data-bs-toggle="pill" data-bs-target="#pills-plants" type="button" role="tab" aria-controls="pills-plants" aria-selected="false">
                     <div class="d-block">
                       <i class="bi bi-signpost-split"></i>
                       <p class="mb-0 m-item">Plants</p>
@@ -74,7 +74,7 @@
                   </button>
                 </li>
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link icon-btn-lg bg-secondary mx-auto" id="pills--tab" data-bs-toggle="pill" data-bs-target="#pills-" type="button" role="tab" aria-controls="pills-" aria-selected="false">
+                  <button class="nav-link icon-btn-lg bg-secondary mx-auto" id="pills-disease-tab" data-bs-toggle="pill" data-bs-target="#pills-disease" type="button" role="tab" aria-controls="pills-disease" aria-selected="false">
                     <div class="d-block">
                       <i class="bi bi-virus2"></i>
                       <p class="mb-0 m-item">Diseases</p>
@@ -94,7 +94,7 @@
            </div>       
           </div>
         </div>
-        <div class="col h-65 h-md-100 bg-secondary rounded-4 overflow-auto">
+         <div class="col h-65 h-md-100 bg-secondary rounded-4 overflow-auto">
           <div class="tab-content py-4 p-md-4 h-100" id="pills-tabContent">
             <div class="tab-pane fade pb-4 position-relative h-100 show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
               
@@ -245,15 +245,82 @@
                 </div>
             </div>
             </div>
-            <div class="tab-pane fade pb-4 " id="pills-disease" role="tabpanel" aria-labelledby="pills-disease-tab" tabindex="0">
-                <div class="container pt-5">
-                  <div class="mb-4">
-                    <label for="plantName" class="mb-2">Enter a plant name to lunch the search</label>
-                    <input type="search" class="form-control form-control-lg" id="plantName" value="Enter Plant Name">
-                  </div>
-                  <div class="bg-dark rounded-3 vh-50 p-3">No Resutl</div>
+            <div class="tab-pane fade pb-4" id="pills-plants" role="tabpanel" aria-labelledby="pills-plants-tab" tabindex="0">
+              <div class="container pt-5">
+                <div class="mb-4">
+                  <label for="plantName" class="mb-2">Enter a plant name to lunch the search</label>
+                  <input type="search" class="form-control form-control-lg" id="plantName" placeholder="Enter Plant Name">
                 </div>
+                <div class="bg-dark rounded-3 vh-50 p-3">No Result</div>
+              </div>
             </div>
+            <div class="tab-pane fade pb-4" id="pills-disease" role="tabpanel" aria-labelledby="pills-disease-tab" tabindex="0">
+              <!-- ? Upload Pic -->
+              <div class="mb-5">
+                <form>
+                  <!-- <label for="picUp" class="mb-2">Please Upload a picture to Auto-Diagnose the Plant</label> -->
+                  <label for="upFile" class="hstack justify-content-center custom-file-upload w-100 vh-25">
+                    <input type="file" class="form-control" id="upFile" onchange="updateLabel()" />
+                   <div class="d-grid gap-0 text-center">
+                    <div><i class="bi bi-cloud-plus display-2 lh-0"></i></div>
+                    <div><small class="fs-6" id="fileLabel">Choose a file</small></div>
+                   </div>
+                  </label>
+                  <span class="text-danger upError" style="display: none;">Only .png, .jpg, and .jpeg are allowed</span>
+                </form>
+              </div>
+              <!-- ? Result -->
+              <div class="card bg-dark border-0">
+                <div class="card-body">
+                  <div class="alrt text-danger">
+                    <span class="me-1 early-warning rounded-circle p-1"><i class="bi bi-exclamation-triangle-fill fs-5"></i></span>
+                    <span class="fs-6">Disease Found!</span>
+                  </div>
+                  <div class="alrt text-success">
+                    <span class="me-2"><i class="bi bi-shield-fill-check"></i></span>
+                    <span class="fs-6">No Disease Found!, your plant is SAFE.</span>
+                  </div>
+                  <div class="d-grid gap-3 my-3">
+                    <div class="mb-1">
+                      <span class="p-name">Phytophthora</span>
+                      <span class="dot"></span>
+                      <span class="p-cause">Lorem ipsum dolor sit.</span>
+                    </div>
+                    <div class="fs-6 text-justify lh-2 mb-3">
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur laborum, error eos culpa, eum doloremque explicabo adipisci aspernatur perspiciatis nobis sunt! Natus modi reprehenderit quisquam, eaque ut consequuntur exercitationem aspernatur provident quod asperiores odit magnam expedita ea tempora dicta aut. Veniam autem fuga, perspiciatis deleniti provident aut mollitia ab ea.
+                    </div>
+                    <div class="perc">
+                      <div class="hstack justify-content-between mb-1">
+                        <span class="small">Phytophthora</span>
+                        <span class="small">75%</span>
+                      </div>
+                      <div class="progress" role="progressbar" aria-label="Example 20px high" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="height: 20px">
+                        <div class="progress-bar bg-danger" style="width: 75%"></div>
+                      </div>
+                    </div>
+                    <div class="perc">
+                      <div class="hstack justify-content-between mb-1">
+                        <span class="small">Leaf Scorch</span>
+                        <span class="small">48%</span>
+                      </div>
+                      <div class="progress" role="progressbar" aria-label="Example 20px high" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100" style="height: 20px">
+                        <div class="progress-bar bg-warning" style="width: 48%"></div>
+                      </div>
+                    </div>
+                    <div class="perc">
+                      <div class="hstack justify-content-between mb-1">
+                        <span class="small">Bacterial Spot</span>
+                        <span class="small">4%</span>
+                      </div>
+                      <div class="progress" role="progressbar" aria-label="Example 20px high" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100" style="height: 20px">
+                        <div class="progress-bar bg-success" style="width: 4%"></div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>            
             <div class="tab-pane fade pb-4 h-100" id="pills-afromap" role="tabpanel" aria-labelledby="pills-afromap-tab">              
             <div class="container h-100 d-flex align-content-between flex-wrap">
               <div class="row w-100">
