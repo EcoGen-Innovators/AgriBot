@@ -96,18 +96,18 @@
         </div>
          <div class="col h-65 h-md-100 bg-secondary rounded-4 overflow-auto">
           <div class="tab-content py-4 p-md-4 h-100" id="pills-tabContent">
-            <div class="tab-pane fade pb-4 position-relative h-100 show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+            <div class="tab-pane fade pb-4 position-relative h-100" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
               
             </div>
-            <div class="tab-pane fade pb-4" id="pills-weather" role="tabpanel" aria-labelledby="pills-weather-tab" tabindex="0">
-              <div class="bg-dark container p-4 rounded-4">
+            <div class="tab-pane fade pb-4 show active" id="pills-weather" role="tabpanel" aria-labelledby="pills-weather-tab" tabindex="0">
+              <div class="bg-dark container p-4 rounded-4 position-relative">
                 <div class="hstack justify-content-between">
                   <div class="hstack gap-2 fs-6 fw-normal mb-4">
                     Weather 
                   </div>
                   <div class="hstack gap-2 fs-6 fw-normal mb-4">
                     <div class="fs-6 fw-normal mb-0" id="cityName"></div>
-                    <div class="dropdown">
+                    <div class="dropdown z-3">
                       <button class="bg-transparent fs-6 border-0 p-0" type="button" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="bi bi-geo-alt" title="Choose City"></i>
                       </button>
@@ -173,11 +173,11 @@
                 <h1 class="fs-6 fw-normal">Weekly Forecast Report</h1>
                 <div class="hstack justify-content-between">
                   <span class="small">Download a weekly precise forecast report [.PDF]</span>
-                  <button type="button" class="btn cs-success text-white">Download</button>
+                  <button type="button" class="btn cs-success text-white" id="generatePDFBtn">Download</button>
                 </div>
               </div>
               <div class="bg-dark container p-4 rounded-4">
-                <canvas id="hourlyChart" width="400" height="200"></canvas>
+                <canvas id="hourlyTemperatureChart" width="400" height="200"></canvas>
               </div>
             </div>
             <div class="tab-pane fade pb-4" id="pills-togrow" role="tabpanel" aria-labelledby="pills-togrow-tab" tabindex="0">
@@ -574,9 +574,9 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/app.js"></script>
     <script src="assets/js/weather.js"></script>
     <script src="assets/js/africa.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script src="assets/js/app.js"></script>
   </body>
 </html>
