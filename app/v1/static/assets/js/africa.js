@@ -686,7 +686,7 @@ const africanCountries =
       "Country Flag": "🇷🇪"
     },
     "YT": {
-    "Population": 13771721
+    "Population": 13771721,
     "Country Name": "Mayotte",
     "Capital": "Mamoudzou",
     "Currency": "Euro",

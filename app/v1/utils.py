@@ -6,7 +6,7 @@ from bcrypt import hashpw, gensalt, checkpw
 
 def hash_password(password):
     """Hash a password"""
-    return hashpw(password.encode('utf-8'), gensalt())
+    return hashpw(password.encode('utf-8'), gensalt()).decode('utf-8')
 
 
 def check_password(password, hashed):

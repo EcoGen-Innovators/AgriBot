@@ -16,6 +16,15 @@
               </div>
               <form method="post" class="hstack align-items-end flex-column h-75">
                 {{ form.hidden_tag() }}
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                  <ul style="list-style: none;">
+                  {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                  {% endfor %}
+                  </ul>
+                {% endif %}
+                {% endwith %}
                   <div class="w-100 mb-0 text-start position-relative">
                       {{ form.email.label(class= "form-label")}}
                       {{ form.email(class="form-control form-control-lg fs-6 ps-5") }}
