@@ -2,7 +2,7 @@ Babel==2.13.0
 bcrypt==4.0.1
 blinker==1.6.3
 click==8.1.7
-Flask==3.0.0
+Flask==2.3.0
 Flask-BabelEx==0.9.4
 Flask-Cors==4.0.0
 Flask-Login==0.6.2
