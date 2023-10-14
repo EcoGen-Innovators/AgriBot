@@ -4,7 +4,6 @@ This repository contains the following files:
 
 - `README.md`: This file provides an overview of the project.
 - `assets/`: This directory contains various project assets.
-- `google-cloud-cli-449.0.0-linux-x86_64.tar.gz`: The Google Cloud CLI installation file.
 - `index.html`: The main HTML file for the website.
 - `login.html`: The HTML file for the login page.
 - `noteboostatk/`: This directory contains project notebooks.
