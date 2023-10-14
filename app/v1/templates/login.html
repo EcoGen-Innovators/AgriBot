@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>AgriBot</title>
-        <link href="/static/assets/css/app.css" rel="stylesheet" />
-    </head>
-    <body class="cs-c1 overflow-hidden">
-       
+{% extends "base.html" %}
+{% block content %}   
         <div class="container-fluid vh-100">
           <div class="row row-cols-1 row-cols-md-2 h-100">
             <div class="col h-100 hstack">
@@ -22,15 +14,25 @@
                       Hey, Enter yout details to get sign in to your account!
                   </p>
               </div>
-              <form action="/" class="hstack align-items-end flex-column h-75" novalidate>
+              <form method="post" class="hstack align-items-end flex-column h-75">
+                {{ form.hidden_tag() }}
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                  <ul style="list-style: none;">
+                  {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                  {% endfor %}
+                  </ul>
+                {% endif %}
+                {% endwith %}
                   <div class="w-100 mb-0 text-start position-relative">
-                      <label for="u-epw" class="form-label">Email</label>
-                      <input type="text" class="form-control form-control-lg fs-6 ps-5" id="u-epw" placeholder="Exp: john@agribot.io" />
+                      {{ form.email.label(class= "form-label")}}
+                      {{ form.email(class="form-control form-control-lg fs-6 ps-5") }}
                       <div class="position-absolute top-50 mt-1 ms-3"><i class="bi bi-envelope-fill text-secondary"></i></div>
                   </div>
                   <div class="w-100 my-3 text-start position-relative">
-                      <label for="u-pass" class="form-label">Password</label>
-                      <input type="password" class="form-control form-control-lg fs-6 ps-5 toggle-password" id="u-pass" placeholder="••••••••" />
+                    {{ form.password.label(class="form-label") }}
+                    {{ form.password(class="form-control form-control-lg fs-6 ps-5 toggle-password") }}
                       <div class="position-absolute top-50 mt-1 ms-3"><i class="bi bi-shield-lock-fill text-secondary"></i></div>
                       <div class="position-absolute top-50 end-0 mt-1 me-3">
                         <button class="btn bg-transparent border-0 p-0 toggle-pw" type="button">
@@ -38,11 +40,18 @@
                       </button>
                       </div>                      
                   </div>
+                  <div class="w-100 mb-4 d-flex gap-4 text-start position-relative">
+                  {{ form.remember(class="form-check-input") }}
+                  {{ form.remember.label(class="form-check-label w-100") }}
+                  <div class="w-100 mb-4 text-start position-relative">
+                    <div class="position-absolute top-50 mt-1 ms-3"><i class="bi bi-check-circle-fill text-secondary"></i></div>
+                  </div>
+                  </div>
                   <div class="hstack justify-content-between mb-4">
                     <span>Forgot Password?</span>
                     <span><a href="/forgot-password" class="text-decoration-underline -success">Reset it</a></span>
                   </div>
-                  <button type="submit" class="btn cs-success w-100 text-white">Sign in<i class="bi bi-arrow-right-short ms-1"></i></button>
+                  {{ form.submit(class="btn cs-success w-100 text-white")}}
                   <span class="lines my-4">or</span>
                   <small class="mt-auto w-100">Don't have an account? <a href="/register" class="fw-medium">Register Now</a></small>
               </form>
@@ -54,5 +63,4 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
         <script src="/static/assets/js/app.js"></script>
         <script src="/static/assets/js/validate.js"></script>
-    </body>
-</html>
+{% endblock %}

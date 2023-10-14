@@ -103,6 +103,20 @@ input {
   border-radius: 5px;
 }
 
+.error {
+  background: rgba(232, 76, 61, 0.7);
+  color: #ccc;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+.success {
+  background: rgba(46, 204, 113, 0.7);
+  color: #ccc;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
 /* Basic button styling */
 #early-warning {
   box-shadow: 0 0 0 0 rgba(232, 76, 61, 0.7);

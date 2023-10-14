@@ -1,1 +1,6 @@
 *venv
+*.db
+__pycache__
+*.pyc
+*.pyo
+*.pyd

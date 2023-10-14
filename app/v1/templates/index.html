@@ -22,10 +22,12 @@
                   <i class="bi bi-person-circle"></i>
                 </button>
                 <ul class="dropdown-menu border-0 bg-light mt-3 shadow">
+                  {% if not current_user.is_authenticated %}
                   <li><a class="dropdown-item" href="/register">Sign up</a></li>
                   <li><a class="dropdown-item" href="/login">Login</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#"><i class="bi bi-escape me-2"></i>Log out</a></li>
+                  {% else %}
+                  <li><a class="dropdown-item" href="/logout"><i class="bi bi-escape me-2"></i>Log out</a></li>
+                  {% endif %}
                 </ul>
               </div>
               <button type="button" class="btn bg-light" id="theme-switch"></button>
@@ -35,7 +37,7 @@
           <div class="container w-md-75 mx-auto mt-5 mt-md-0 px-md-5 hstack h-100">
            <div class="d-grid gap-5 w-100">
             <div class="d-grid text-center text-md-start">
-              <h1 class="fs-1 fw-bold">Hi,<span class="ms-2" id="f-name">Sami</span></h1>
+              <h1 class="fs-1 fw-bold">Hi,<span class="ms-2" id="f-name">{{ current_user.username }}</span></h1>
               <p class="text-body mb-0">Welcome back to your workspace, we missed You!</p>
             </div>
             <div class="d-grid gap-3">
@@ -456,7 +458,7 @@
                       <path class="land circle re" d="M 1688.1991,946.0073 C 1693.6366,946.0073 1693.6366,937.5397 1688.1991,937.5397 C 1682.7576,937.5397 1682.7576,946.0073 1688.1991,946.0073" id="re"/>
                     </g>
                     <g>
-                      <path class="land coast sh" style="" d="M 1220.3311,908.35846 C 1220.6421,907.87046 1220.6691,907.36646 1220.4111,906.84646 C 1219.8101,907.26446 1219.7841,907.87846 1220.3311,908.35846" id="sh-"/>
+                      <path class="land coast sh" d="M 1220.3311,908.35846 C 1220.6421,907.87046 1220.6691,907.36646 1220.4111,906.84646 C 1219.8101,907.26446 1219.7841,907.87846 1220.3311,908.35846" id="sh-"/>
                       <path class="land circle sh" d="M 1220.2648,912.28455 C 1226.5052,912.28455 1226.5052,902.92036 1220.2648,902.92036 C 1214.0197,902.92036 1214.0197,912.28455 1220.2648,912.28455" id="sh"/>
                     </g>
                     </g>
