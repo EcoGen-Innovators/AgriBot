@@ -144,5 +144,3 @@ const apiKey = '1b731c5ea8595d02eb473392ea79108b';
         savedWeatherData = JSON.parse(storedWeatherData);
         updateWeatherData(savedWeatherData);
     }
-
-    // ? ***************************
