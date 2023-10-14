@@ -2,7 +2,7 @@
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
-// Check internet connection status
+// ? Check internet connection status
 function checkInternetConnection() {
     const lostConnectionToast = new bootstrap.Toast(document.getElementById('lostConnectionToast'));
     const restoredConnectionToast = new bootstrap.Toast(document.getElementById('restoredConnectionToast'));
@@ -30,7 +30,7 @@ function checkInternetConnection() {
 checkInternetConnection();
 
 
-// Toggle Password
+// ? Toggle Password
 const toggleButtons = document.querySelectorAll(".toggle-pw");
 const toggleIcons = document.querySelectorAll(".toggle-icon");
 const passwordInputs = document.querySelectorAll(".toggle-password");
@@ -53,7 +53,7 @@ function togglePasswordVisibility(inputField, toggleIcon) {
     }
 }
 
-// Digit Group
+// ? Digit Group
 const digitGroups = document.querySelectorAll('.digit-group input');
 
     digitGroups.forEach(function(input) {
@@ -78,7 +78,45 @@ const digitGroups = document.querySelectorAll('.digit-group input');
         });
 });
 
-// Reset PW
+
+
+// ? Upload Files
+function updateLabel() {
+    const fileInput = document.getElementById('upFile');
+    const fileLabel = document.getElementById('upFile');
+    if (fileInput.files.length > 0) {
+        fileLabel.textContent = fileInput.files[0].name;
+    } else {
+        fileLabel.textContent = "Choose a file";
+    }
+}
+// ? Allowed Files
+function updateLabel() {
+    const fileInput = document.getElementById('upFile');
+    const fileLabel = document.getElementById('fileLabel');
+    const upError = document.querySelector('.upError');
+
+    if (fileInput.files.length > 0) {
+        const fileName = fileInput.files[0].name;
+        const fileExtension = fileName.split('.').pop().toLowerCase();
+
+        if (['jpg', 'jpeg', 'png'].includes(fileExtension)) {
+            fileLabel.innerText = fileName;
+            upError.style.display = 'none';
+        } else {
+            fileLabel.innerText = 'Choose a file';
+            upError.style.display = 'block';
+            upError.innerText = 'Only .png, .jpg, and .jpeg are allowed';
+            fileInput.value = ''; // Clear the file input
+        }
+    } else {
+        fileLabel.innerText = 'Choose a file';
+        upError.style.display = 'none';
+    }
+}
+
+
+// ? Reset PW
 // Get references to the divs and the button
 var resetEmail = document.getElementById("resetEmail");
 var otpCode = document.getElementById("otpCode");
@@ -111,4 +149,3 @@ tglRpw.addEventListener('click', function () {
 window.addEventListener('load', function () {
   digit1.focus();
 });
-

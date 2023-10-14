@@ -117,7 +117,7 @@ input {
 
 /* Basic button styling */
 
-#early-warning {
+.early-warning {
     box-shadow: 0 0 0 0 rgba(232, 76, 61, 0.7);
     animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
     transition: all 300ms ease-in-out;
@@ -125,7 +125,7 @@ input {
   
   
   /* Comment-out to have the button continue to pulse on mouseover */
-  #early-warning:hover {
+  .early-warning:hover {
     animation: none;
     color: #ffffff;
   }
@@ -228,4 +228,54 @@ input {
 		padding: 0 .5rem;
 		font-size: 24px;
 	}
+}
+
+.dot {
+    &::before {
+        content: '•';
+    }
+}
+
+.p-name,
+.p-cauz {
+    margin: 0 .25rem;
+}
+
+.p-name {
+    &::before {
+        content: 'Name:';       
+        margin-right: .25rem;
+        color: var(--bs-gray-600);
+        font-weight: bold;
+    }
+}
+
+.p-cause {
+    &::before {
+        content: 'Cause:';       
+        margin-right: .25rem;
+        color: var(--bs-gray-600);
+        font-weight: bold;
+    }
+}
+
+.custom-file-upload {
+    background: transparent;
+    border: 1px dashed;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.custom-file-upload:hover {
+    background-color: rgba(255, 255, 255, .1);
+}
+
+/* Make sure the actual input element is hidden */
+#upFile {
+    display: none;
+}
+
+.progress {
+    height: .35rem!important;
 }

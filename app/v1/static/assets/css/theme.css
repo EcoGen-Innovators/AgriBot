@@ -67,4 +67,8 @@
 }
 .nav-link:hover {
   color: var(--bs-black);
+}
+
+.text-justify {
+  text-align: justify;
 }/*# sourceMappingURL=theme.css.map */

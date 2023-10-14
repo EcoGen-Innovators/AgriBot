@@ -1,7 +1,8 @@
-@import url("/static/assets/css/bootstrap.css");
+@charset "UTF-8";
+@import url("bootstrap.css");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
-@import url("/static/assets/css/theme.css");
+@import url("theme.css");
 body {
   font-family: "Inter", sans-serif;
 }
@@ -103,29 +104,15 @@ input {
   border-radius: 5px;
 }
 
-.error {
-  background: rgba(232, 76, 61, 0.7);
-  color: #ccc;
-  border-radius: 5px;
-  padding: 0.5rem;
-}
-
-.success {
-  background: rgba(46, 204, 113, 0.7);
-  color: #ccc;
-  border-radius: 5px;
-  padding: 0.5rem;
-}
-
 /* Basic button styling */
-#early-warning {
+.early-warning {
   box-shadow: 0 0 0 0 rgba(232, 76, 61, 0.7);
   animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
   transition: all 300ms ease-in-out;
 }
 
 /* Comment-out to have the button continue to pulse on mouseover */
-#early-warning:hover {
+.early-warning:hover {
   animation: none;
   color: #ffffff;
 }
@@ -196,4 +183,48 @@ input {
 .digit-group .splitter {
   padding: 0 0.5rem;
   font-size: 24px;
+}
+
+.dot::before {
+  content: "•";
+}
+
+.p-name,
+.p-cauz {
+  margin: 0 0.25rem;
+}
+
+.p-name::before {
+  content: "Name:";
+  margin-right: 0.25rem;
+  color: var(--bs-gray-600);
+  font-weight: bold;
+}
+
+.p-cause::before {
+  content: "Cause:";
+  margin-right: 0.25rem;
+  color: var(--bs-gray-600);
+  font-weight: bold;
+}
+
+.custom-file-upload {
+  background: transparent;
+  border: 1px dashed;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.custom-file-upload:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Make sure the actual input element is hidden */
+#upFile {
+  display: none;
+}
+
+.progress {
+  height: 0.35rem !important;
 }/*# sourceMappingURL=app.css.map */
