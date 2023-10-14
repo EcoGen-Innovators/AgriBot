@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block content %}    
+        <div class="container-fluid vh-100">
+          <div class="row row-cols-1 row-cols-md-2 h-100">
+            <div class="col h-100 hstack">
+              <div class="h-95 w-100 rounded-4 bg-cover" style="background: url('/static/assets/img/05.jpg');"></div>
+          </div>
+            <div class="col hstack text-center">
+              <div class="w-60 m-auto">
+                <div class="text-center mt-3 mb-5">
+                  <img src="/static/assets/img/logo/logo.png" class="img-fluid w-25" alt="">
+                  <h1 class="fs-3 fw-bold">Welcome To <span class="text-success">AgriBot</span></h1>
+                  <p class="mb-0 small">
+                      Please Enter yout details to open an account!
+                  </p>
+              </div>
+              <form class="hstack align-items-end flex-column h-75" method="post">
+                {{ form.hidden_tag() }}
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                  <ul style="list-style: none;">
+                  {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                  {% endfor %}
+                  </ul>
+                {% endif %}
+                {% endwith %}
+                  <div class="w-100 mb-3 text-start position-relative">
+                      {{ form.username.label(class="form-label form-label")}}
+                      {{ form.username(class="form-control form-control-lg fs-6 ps-5") }}
+                      <div class="position-absolute top-50 mt-1 ms-3"><i class="bi bi-at fs-5 text-secondary"></i></div>
+                  </div>
+                  <div class="w-100 text-start position-relative">
+                      {{ form.email.label(class= "form-label")}}
+                      {{ form.email(class="form-control form-control-lg fs-6 ps-5") }}
+                      <div class="position-absolute top-50 mt-1 ms-3"><i class="bi bi-envelope-fill text-secondary"></i></div>
+                  </div>
+                  <div class="w-100 mt-3 mb-4 text-start position-relative">
+                      {{ form.password.label(class="form-label") }}
+                      {{ form.password(class="form-control form-control-lg fs-6 ps-5 toggle-password") }}
+                      <div class="position-absolute top-50 mt-1 ms-3"><i class="bi bi-shield-lock-fill text-secondary"></i></div>
+                      <div class="position-absolute top-50 end-0 mt-1 me-3">
+                        <button class="btn bg-transparent border-0 p-0 toggle-pw" type="button">
+                          <i class="bi bi-eye toggle-icon"></i>
+                      </button>
+                      </div>
+                  </div>
+                  <div class="w-100 mt-21 mb-4 text-start position-relative">
+                    {{ form.confirm.label(class="form-label") }}
+                    {{ form.confirm(class="form-control form-control-lg fs-6 ps-5 toggle-password") }}
+                    <div class="position-absolute top-50 mt-1 ms-3"><i class="bi bi-shield-lock-fill text-secondary"></i></div>
+                    <div class="position-absolute top-50 end-0 mt-1 me-3">
+                      <button class="btn bg-transparent border-0 p-0 toggle-pw" type="button">
+                        <i class="bi bi-eye toggle-icon"></i>
+                    </button>
+                    </div>
+                </div>
+                  {{ form.submit(class="btn cs-success w-100 text-white") }}
+                  <span class="lines my-4">or</span>
+                  <span class="w-100 lh-0">Already have an account? <a href="/login" class="fw-medium">Sign in</a></span>
+              </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/static/assets/js/app.js"></script>
+        <script src="/static/assets/js/validate.js"></script>
+{% endblock %}

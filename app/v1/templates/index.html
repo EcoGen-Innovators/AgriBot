@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AgriBot</title>
-    <link href="assets/css/app.css" rel="stylesheet">
+    <link href="/static/assets/css/app.css" rel="stylesheet">
   </head>
-  <body> 
+  <body>
 
     <!--! nav -->
-    <!-- Content --> 
+    <!-- Content -->
     <div class="container-fluid overflow-hidden">
       <div class="row row-cols-1 row-cols-md-2 p-3 vh-100">
         <div class="col">
@@ -17,32 +17,34 @@
           <nav class="position-absolute d-md-flex align-items-center justify-content-between w-50 pe-5 gap-3 py-2 d-none">
             <div class="hstack gap-3">
               <div class="dropdown">
-                <button class="btn bg-secondary border-0 hstack gap-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn bg-light border-0 hstack gap-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <i class="bi bi-list"></i>
                   <i class="bi bi-person-circle"></i>
                 </button>
-                <ul class="dropdown-menu border-0 bg-secondary mt-3 shadow">
-                  <li><a class="dropdown-item" href="register.html">Sign up</a></li>
-                  <li><a class="dropdown-item" href="login.html">Login</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#"><i class="bi bi-escape me-2"></i>Log out</a></li>
+                <ul class="dropdown-menu border-0 bg-light mt-3 shadow">
+                  {% if not current_user.is_authenticated %}
+                  <li><a class="dropdown-item" href="/register">Sign up</a></li>
+                  <li><a class="dropdown-item" href="/login">Login</a></li>
+                  {% else %}
+                  <li><a class="dropdown-item" href="/logout"><i class="bi bi-escape me-2"></i>Log out</a></li>
+                  {% endif %}
                 </ul>
               </div>
-              <button type="button" class="btn bg-secondary" id="theme-switch"></button>
+              <button type="button" class="btn bg-light" id="theme-switch"></button>
             </div>
-            <button type="button" class="btn border-0 btn-danger"><i class="bi bi-moisture"></i></button>
+            <button type="button" class="btn border-0 btn-danger" id="early-warning"><i class="bi bi-moisture"></i></button>
           </nav>
           <div class="container w-md-75 mx-auto mt-5 mt-md-0 px-md-5 hstack h-100">
            <div class="d-grid gap-5 w-100">
             <div class="d-grid text-center text-md-start">
-              <h1 class="fs-1 fw-bold">Hi,<span class="ms-2" id="f-name">Sami</span></h1>
+              <h1 class="fs-1 fw-bold">Hi,<span class="ms-2" id="f-name">{{ current_user.username }}</span></h1>
               <p class="text-body mb-0">Welcome back to your workspace, we missed You!</p>
             </div>
             <div class="d-grid gap-3">
               <!-- <h1 class="fs-5">Menu</h1> -->
               <ul class="nav nav-pills row row-cols-6 row-cols-md-3 gy-5 mb-5 mb-md-0 f-tab" id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link icon-btn-lg bg-secondary mx-auto active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+                  <button class="nav-link icon-btn-lg bg-light mx-auto active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
                     <div class="d-block">
                       <i class="bi bi-house-gear fs-1"></i>
                       <p class="mb-0 m-item">Home</p>
@@ -50,7 +52,7 @@
                   </button>
                 </li>
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link icon-btn-lg bg-secondary mx-auto" id="pills-weather-tab" data-bs-toggle="pill" data-bs-target="#pills-weather" type="button" role="tab" aria-controls="pills-weather" aria-selected="false">
+                  <button class="nav-link icon-btn-lg bg-light mx-auto" id="pills-weather-tab" data-bs-toggle="pill" data-bs-target="#pills-weather" type="button" role="tab" aria-controls="pills-weather" aria-selected="false">
                     <div class="d-block">
                       <i class="bi bi-cloud-drizzle fs-1"></i>
                       <p class="mb-0 m-item">Weather</p>
@@ -58,7 +60,7 @@
                   </button>
                 </li>
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link icon-btn-lg bg-secondary mx-auto" id="pills-togrow-tab" data-bs-toggle="pill" data-bs-target="#pills-togrow" type="button" role="tab" aria-controls="pills-togrow" aria-selected="false">
+                  <button class="nav-link icon-btn-lg bg-light mx-auto" id="pills-togrow-tab" data-bs-toggle="pill" data-bs-target="#pills-togrow" type="button" role="tab" aria-controls="pills-togrow" aria-selected="false">
                       <div class="d-block">
                         <i class="bi bi-tree fs-1"></i>
                         <p class="mb-0 m-item">To Grow</p>
@@ -66,7 +68,7 @@
                   </button>
                 </li>
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link icon-btn-lg bg-secondary mx-auto" id="pills-plants-tab" data-bs-toggle="pill" data-bs-target="#pills-plants" type="button" role="tab" aria-controls="pills-plants" aria-selected="false">
+                  <button class="nav-link icon-btn-lg bg-light mx-auto" id="pills-disease-tab" data-bs-toggle="pill" data-bs-target="#pills-disease" type="button" role="tab" aria-controls="pills-disease" aria-selected="false">
                     <div class="d-block">
                       <i class="bi bi-signpost-split"></i>
                       <p class="mb-0 m-item">Plants</p>
@@ -74,7 +76,7 @@
                   </button>
                 </li>
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link icon-btn-lg bg-secondary mx-auto" id="pills-disease-tab" data-bs-toggle="pill" data-bs-target="#pills-disease" type="button" role="tab" aria-controls="pills-disease" aria-selected="false">
+                  <button class="nav-link icon-btn-lg bg-light mx-auto" id="pills--tab" data-bs-toggle="pill" data-bs-target="#pills-" type="button" role="tab" aria-controls="pills-" aria-selected="false">
                     <div class="d-block">
                       <i class="bi bi-virus2"></i>
                       <p class="mb-0 m-item">Diseases</p>
@@ -82,7 +84,7 @@
                   </button>
                 </li>
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link icon-btn-lg bg-secondary mx-auto" id="pills-afromap-tab" data-bs-toggle="pill" data-bs-target="#pills-afromap" type="button" role="tab" aria-controls="pills-afromap" aria-selected="false">
+                  <button class="nav-link icon-btn-lg bg-light mx-auto" id="pills-afromap-tab" data-bs-toggle="pill" data-bs-target="#pills-afromap" type="button" role="tab" aria-controls="pills-afromap" aria-selected="false">
                     <div class="d-block">
                       <i class="bi bi-globe-europe-africa"></i>
                       <p class="mb-0 m-item">Afro-Map</p>
@@ -94,20 +96,20 @@
            </div>       
           </div>
         </div>
-         <div class="col h-65 h-md-100 bg-secondary rounded-4 overflow-auto">
+        <div class="col h-65 h-md-100 bg-light rounded-4 overflow-auto">
           <div class="tab-content py-4 p-md-4 h-100" id="pills-tabContent">
             <div class="tab-pane fade pb-4 position-relative h-100 show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
               
             </div>
             <div class="tab-pane fade pb-4" id="pills-weather" role="tabpanel" aria-labelledby="pills-weather-tab" tabindex="0">
-              <div class="bg-dark container p-4 rounded-4 position-relative">
+              <div class="bg-dark container p-4 rounded-4">
                 <div class="hstack justify-content-between">
                   <div class="hstack gap-2 fs-6 fw-normal mb-4">
                     Weather 
                   </div>
                   <div class="hstack gap-2 fs-6 fw-normal mb-4">
                     <div class="fs-6 fw-normal mb-0" id="cityName"></div>
-                    <div class="dropdown z-3">
+                    <div class="dropdown">
                       <button class="bg-transparent fs-6 border-0 p-0" type="button" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="bi bi-geo-alt" title="Choose City"></i>
                       </button>
@@ -116,7 +118,7 @@
                           <label for="cityInput" class="small">Enter City Name:</label>
                           <div class="hstack gap-2">                            
                           <input type="text" class="form-control" id="cityInput" placeholder="City Name" required>
-                          <button type="button" class="bg-secondary btn border-0 h-100" id="autoDetect" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="Precise Location"><i class="bi bi-geo"></i></button>
+                          <button type="button" class="bg-light btn border-0 h-100" id="autoDetect" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="Precise Location"><i class="bi bi-geo"></i></button>
                           </div>
                           <button type="button" class="btn cs-success text-white w-100 mt-2" id="searchBtn">Search</button>
                         </div>
@@ -173,14 +175,14 @@
                 <h1 class="fs-6 fw-normal">Weekly Forecast Report</h1>
                 <div class="hstack justify-content-between">
                   <span class="small">Download a weekly precise forecast report [.PDF]</span>
-                  <button type="button" class="btn cs-success text-white" id="generatePDFBtn">Download</button>
+                  <button type="button" class="btn cs-success text-white">Download</button>
                 </div>
               </div>
               <div class="bg-dark container p-4 rounded-4">
-                <canvas id="hourlyTemperatureChart" width="400" height="200"></canvas>
+                <canvas id="hourlyChart" width="400" height="200"></canvas>
               </div>
             </div>
-            <div class="tab-pane fade pb-4" id="pills-togrow" role="tabpanel" aria-labelledby="pills-togrow-tab" tabindex="0">
+            <div class="tab-pane fade pb-4 h-" id="pills-togrow" role="tabpanel" aria-labelledby="pills-togrow-tab" tabindex="0">
               <div class="container h-100">        
                 <form action="/login" method="post" class="bg-dark p-4 rounded-4 mb-4">
                     <!-- Name:
@@ -245,82 +247,15 @@
                 </div>
             </div>
             </div>
-            <div class="tab-pane fade pb-4" id="pills-plants" role="tabpanel" aria-labelledby="pills-plants-tab" tabindex="0">
-              <div class="container pt-5">
-                <div class="mb-4">
-                  <label for="plantName" class="mb-2">Enter a plant name to lunch the search</label>
-                  <input type="search" class="form-control form-control-lg" id="plantName" placeholder="Enter Plant Name">
-                </div>
-                <div class="bg-dark rounded-3 vh-50 p-3">No Result</div>
-              </div>
-            </div>
             <div class="tab-pane fade pb-4" id="pills-disease" role="tabpanel" aria-labelledby="pills-disease-tab" tabindex="0">
-              <!-- ? Upload Pic -->
-              <div class="mb-5">
-                <form>
-                  <!-- <label for="picUp" class="mb-2">Please Upload a picture to Auto-Diagnose the Plant</label> -->
-                  <label for="upFile" class="hstack justify-content-center custom-file-upload w-100 vh-25">
-                    <input type="file" class="form-control" id="upFile" onchange="updateLabel()" />
-                   <div class="d-grid gap-0 text-center">
-                    <div><i class="bi bi-cloud-plus display-2 lh-0"></i></div>
-                    <div><small class="fs-6" id="fileLabel">Choose a file</small></div>
-                   </div>
-                  </label>
-                  <span class="text-danger upError" style="display: none;">Only .png, .jpg, and .jpeg are allowed</span>
-                </form>
-              </div>
-              <!-- ? Result -->
-              <div class="card bg-dark border-0">
-                <div class="card-body">
-                  <div class="alrt text-danger">
-                    <span class="me-1 early-warning rounded-circle p-1"><i class="bi bi-exclamation-triangle-fill fs-5"></i></span>
-                    <span class="fs-6">Disease Found!</span>
+                <div class="container pt-5">
+                  <div class="mb-4">
+                    <label for="plantName" class="mb-2">Enter a plant name to lunch the search</label>
+                    <input type="search" class="form-control form-control-lg" id="plantName" value="Enter Plant Name">
                   </div>
-                  <div class="alrt text-success">
-                    <span class="me-2"><i class="bi bi-shield-fill-check"></i></span>
-                    <span class="fs-6">No Disease Found!, your plant is SAFE.</span>
-                  </div>
-                  <div class="d-grid gap-3 my-3">
-                    <div class="mb-1">
-                      <span class="p-name">Phytophthora</span>
-                      <span class="dot"></span>
-                      <span class="p-cause">Lorem ipsum dolor sit.</span>
-                    </div>
-                    <div class="fs-6 text-justify lh-2 mb-3">
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur laborum, error eos culpa, eum doloremque explicabo adipisci aspernatur perspiciatis nobis sunt! Natus modi reprehenderit quisquam, eaque ut consequuntur exercitationem aspernatur provident quod asperiores odit magnam expedita ea tempora dicta aut. Veniam autem fuga, perspiciatis deleniti provident aut mollitia ab ea.
-                    </div>
-                    <div class="perc">
-                      <div class="hstack justify-content-between mb-1">
-                        <span class="small">Phytophthora</span>
-                        <span class="small">75%</span>
-                      </div>
-                      <div class="progress" role="progressbar" aria-label="Example 20px high" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="height: 20px">
-                        <div class="progress-bar bg-danger" style="width: 75%"></div>
-                      </div>
-                    </div>
-                    <div class="perc">
-                      <div class="hstack justify-content-between mb-1">
-                        <span class="small">Leaf Scorch</span>
-                        <span class="small">48%</span>
-                      </div>
-                      <div class="progress" role="progressbar" aria-label="Example 20px high" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100" style="height: 20px">
-                        <div class="progress-bar bg-warning" style="width: 48%"></div>
-                      </div>
-                    </div>
-                    <div class="perc">
-                      <div class="hstack justify-content-between mb-1">
-                        <span class="small">Bacterial Spot</span>
-                        <span class="small">4%</span>
-                      </div>
-                      <div class="progress" role="progressbar" aria-label="Example 20px high" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100" style="height: 20px">
-                        <div class="progress-bar bg-success" style="width: 4%"></div>
-                      </div>
-                    </div>
-                  </div>
-                  
+                  <div class="bg-dark rounded-3 vh-50 p-3">No Resutl</div>
                 </div>
-              </div>
-            </div>            
+            </div>
             <div class="tab-pane fade pb-4 h-100" id="pills-afromap" role="tabpanel" aria-labelledby="pills-afromap-tab">              
             <div class="container h-100 d-flex align-content-between flex-wrap">
               <div class="row w-100">
@@ -358,7 +293,6 @@
                         </div>
                       </div>
                     </div>
-                    
                   </div>
                 </div>                            
                 <div class="col-9">
@@ -524,7 +458,7 @@
                       <path class="land circle re" d="M 1688.1991,946.0073 C 1693.6366,946.0073 1693.6366,937.5397 1688.1991,937.5397 C 1682.7576,937.5397 1682.7576,946.0073 1688.1991,946.0073" id="re"/>
                     </g>
                     <g>
-                      <path class="land coast sh" style="" d="M 1220.3311,908.35846 C 1220.6421,907.87046 1220.6691,907.36646 1220.4111,906.84646 C 1219.8101,907.26446 1219.7841,907.87846 1220.3311,908.35846" id="sh-"/>
+                      <path class="land coast sh" d="M 1220.3311,908.35846 C 1220.6421,907.87046 1220.6691,907.36646 1220.4111,906.84646 C 1219.8101,907.26446 1219.7841,907.87846 1220.3311,908.35846" id="sh-"/>
                       <path class="land circle sh" d="M 1220.2648,912.28455 C 1226.5052,912.28455 1226.5052,902.92036 1220.2648,902.92036 C 1214.0197,902.92036 1214.0197,912.28455 1220.2648,912.28455" id="sh"/>
                     </g>
                     </g>
@@ -532,15 +466,11 @@
                 </div>  
                 </div>                            
               </div>
-              <!-- ? Crops -->
-              <div class="d-grid w-100">
-                <h1 class="small">Top 10 crops</h1>
-                <div class="card border-0">
-                  <div class="card-body">
-                  <div id="ccorps" class="h-100">N/A</div>
-                </div>
-              </div>
-              </div>
+              
+
+              
+
+
             </div>
             </div>
           </div>
@@ -574,9 +504,9 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/weather.js"></script>
-    <script src="assets/js/africa.js"></script>
-    <script src="assets/js/theme.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="/static/assets/js/app.js"></script>
+    <script src="/static/assets/js/weather.js"></script>
+    <script src="/static/assets/js/africa.js"></script>
+    <script src="/static/assets/js/theme.js"></script>
   </body>
 </html>
