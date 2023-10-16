@@ -1,6 +1,8 @@
-*venv
+*env
 *.db
 __pycache__
 *.pyc
 *.pyo
 *.pyd
+.vscode
+
