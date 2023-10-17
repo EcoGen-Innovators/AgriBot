@@ -1,6 +1,5 @@
 const endpoint = 'https://restcountries.eu/rest/v3/';
-const flagsEndpoint = '/static/assets/js/flag.json'; // Replace with the correct path to your flags.json file
-
+const flagsEndpoint = '../static/assets/js/flag.json'; 
 // Function to load flags.json
 async function loadFlags() {
   try {
@@ -39,6 +38,8 @@ async function updateCountryInfo(countryCode) {
   const flagPath = flagsData.find((item) => item.code === countryCode)?.image;
   if (flagPath) {
     document.querySelector('#flag-img').src = flagPath;
+    document.querySelector('#flag-img').style.display="block";
+    document.querySelector('#flag_na').style.display="none";
   }
 }
 
