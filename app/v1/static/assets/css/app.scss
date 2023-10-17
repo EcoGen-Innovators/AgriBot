@@ -11,6 +11,27 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 1rem;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
 a {
     text-decoration: none;
     color: var(--bs-primary);
@@ -72,7 +93,7 @@ a {
 
 #c-info {
     & .card {
-        height: 4rem;
+        height: 3.5rem;
     }
 }
 
