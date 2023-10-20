@@ -115,6 +115,24 @@ function updateLabel() {
     }
 }
 
+// Textarea auto expand
+const textarea = document.getElementById("chatPrompt");
+
+textarea.addEventListener("input", function () {
+  this.style.height = "auto";
+  this.style.height = this.scrollHeight + "px";
+
+  // Limit the maximum number of rows to 5
+  const maxRows = 5;
+  const lineHeight = parseInt(getComputedStyle(this).lineHeight);
+  if (this.scrollHeight > maxRows * lineHeight) {
+    this.style.overflowY = "scroll";
+    this.style.height = maxRows * lineHeight + "px";
+  } else {
+    this.style.overflowY = "hidden";
+  }
+});
+
 
 // ? Reset PW
 // Get references to the divs and the button
@@ -149,3 +167,4 @@ tglRpw.addEventListener('click', function () {
 window.addEventListener('load', function () {
   digit1.focus();
 });
+

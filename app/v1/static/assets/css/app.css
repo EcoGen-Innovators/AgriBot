@@ -248,4 +248,59 @@ input {
 
 .progress {
   height: 0.35rem !important;
+}
+
+.text-area-container {
+  overflow: hidden;
+  max-height: 5em; /* You can adjust the height as needed */
+}
+
+.auto-expand {
+  resize: none;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-y: hidden;
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+.auto-expand:focus {
+  outline: none;
+}
+
+.auto-expand:empty::before {
+  content: attr(placeholder);
+  color: #888;
+}
+
+.auto-expand:not(:empty) {
+  overflow-y: auto;
+}
+
+#u-chat::before {
+  content: "\f4e1";
+  font-family: bootstrap-icons !important;
+  background: var(--cs-danger);
+  color: var(--bs-white);
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  align-self: baseline;
+}
+
+#ai-chat::before {
+  content: "\f6b1";
+  font-family: bootstrap-icons !important;
+  background: var(--cs-success);
+  color: var(--bs-white);
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  align-self: baseline;
 }/*# sourceMappingURL=app.css.map */

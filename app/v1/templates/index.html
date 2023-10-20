@@ -66,10 +66,10 @@
                   </button>
                 </li>
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link icon-btn-lg bg-secondary mx-auto" id="pills-plants-tab" data-bs-toggle="pill" data-bs-target="#pills-plants" type="button" role="tab" aria-controls="pills-plants" aria-selected="false">
+                  <button class="nav-link icon-btn-lg bg-secondary mx-auto" id="pills-chatbot-tab" data-bs-toggle="pill" data-bs-target="#pills-chatbot" type="button" role="tab" aria-controls="pills-chatbot" aria-selected="false">
                     <div class="d-block">
-                      <i class="bi bi-flower3"></i>
-                      <p class="mb-0 m-item">Plants</p>
+                      <i class="bi bi-robot"></i>
+                      <p class="mb-0 m-item">Ai Chat</p>
                     </div>
                   </button>
                 </li>
@@ -258,13 +258,24 @@
                 </div>
               </div>
             </div>
-            <div class="tab-pane fade pb-4" id="pills-plants" role="tabpanel" aria-labelledby="pills-plants-tab" tabindex="0">
-              <div class="container pt-5">
-                <div class="mb-4">
-                  <label for="plantName" class="mb-2">Enter a plant name to lunch the search</label>
-                  <input type="search" class="form-control form-control-lg" id="plantName" placeholder="Enter Plant Name">
+            <div class="tab-pane fade h-100" id="pills-chatbot" role="tabpanel" aria-labelledby="pills-chatbot-tab" tabindex="0">
+              <div class="container d-flex flex-column h-100">
+                <div class="bg-dark rounded-3 h-95 p-4 mb-3 overflow-y-auto">
+                  <!-- user-chat -->
+                  <div class="hstack gap-2" id="u-chat">
+                    <div class="py-2 px-3 w-100">Farmer prompt here!</div>
+                  </div>
+                  <!-- ai-chat -->
+                  <div class="hstack gap-2 my-4" id="ai-chat">
+                    <div class="py-2 px-3 bg-secondary rounded-3 w-100">Ai Response goes here!</div>
+                  </div>
                 </div>
-                <div class="bg-dark rounded-3 vh-50 p-3">No Result</div>
+                <div class="position-relative text-area-container mt-auto align-items-end mt-auto">
+                  <textarea name="chatPrompt" class="position-relative form-control form-control-lg border-0 auto-expand p-3 fs-6" id="chatPrompt" cols="30" rows="1" placeholder="Start a new chat"></textarea>
+                  <div class="position-absolute end-0 top-50 translate-middle-y me-2">
+                    <button type="button" class="btn bg-success rounded-circle text-white"><i class="bi bi-send"></i></button>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="tab-pane fade pb-4" id="pills-disease" role="tabpanel" aria-labelledby="pills-disease-tab" tabindex="0">
