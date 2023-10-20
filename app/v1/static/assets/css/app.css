@@ -277,7 +277,7 @@ input {
   overflow-y: auto;
 }
 
-#u-chat::before {
+#pills-chatbot #u-chat::before {
   content: "\f4e1";
   font-family: bootstrap-icons !important;
   background: var(--cs-danger);
@@ -290,8 +290,7 @@ input {
   border-radius: 100%;
   align-self: baseline;
 }
-
-#ai-chat::before {
+#pills-chatbot #ai-chat::before {
   content: "\f6b1";
   font-family: bootstrap-icons !important;
   background: var(--cs-success);
@@ -303,4 +302,16 @@ input {
   align-items: center;
   border-radius: 100%;
   align-self: baseline;
+}
+#pills-chatbot #chatPrompt {
+  font-size: 15px;
+}
+#pills-chatbot #ai-btn {
+  position: fixed;
+  right: 4.5rem;
+  bottom: 2.65rem;
+}
+#pills-chatbot #ai-btn button {
+  width: 2rem;
+  height: 2rem;
 }/*# sourceMappingURL=app.css.map */

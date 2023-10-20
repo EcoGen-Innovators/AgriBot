@@ -328,35 +328,49 @@ input {
     overflow-y: auto;
   }
 
-//  U
+//  pills-chatbot
 
-#u-chat {
-    &::before {
-        content: '\F4E1';
-        font-family: bootstrap-icons !important;
-        background: var(--cs-danger);
-        color: var(--bs-white);
-        width: 2.5rem;
-        height: 2.5rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 100%;
-        align-self: baseline;
-    }   
-}
-#ai-chat {
-    &::before {
-        content: '\F6B1';
-        font-family: bootstrap-icons !important;
-        background: var(--cs-success);
-        color: var(--bs-white);
-        width: 2.5rem;
-        height: 2.5rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 100%;
-        align-self: baseline;
-    }   
+#pills-chatbot {
+    #u-chat {
+        &::before {
+            content: '\F4E1';
+            font-family: bootstrap-icons !important;
+            background: var(--cs-danger);
+            color: var(--bs-white);
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 100%;
+            align-self: baseline;
+        }   
+    }
+    #ai-chat {
+        &::before {
+            content: '\F6B1';
+            font-family: bootstrap-icons !important;
+            background: var(--cs-success);
+            color: var(--bs-white);
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 100%;
+            align-self: baseline;
+        }   
+    }
+    #chatPrompt {
+        font-size: 15px;
+    }
+    #ai-btn {
+        position: fixed;
+        right: 4.5rem;
+        bottom: 2.65rem;
+        button {
+            width: 2rem;
+            height: 2rem;
+        }
+    }
 }
