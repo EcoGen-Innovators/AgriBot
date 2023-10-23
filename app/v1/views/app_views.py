@@ -1,13 +1,14 @@
 """
 Application views that handle template rendering
 """
-
-from flask import Blueprint, flash, redirect, render_template, request, url_for
+import os
+from flask import Blueprint, flash, redirect, render_template, request, url_for, jsonify
 from forms import LoginForm, RegisterForm
+from werkzeug.utils import secure_filename
 from models.users import User
 from flask_login import login_user, logout_user, login_required, current_user
 from utils import check_password, hash_password
-
+from .diseas_detection import query
 
 app_views = Blueprint('app_views', __name__, url_prefix='/')
 
@@ -94,3 +95,22 @@ def forgot_password():
 def reset():
     """Render the password reset page"""
     return render_template("new-pw.html")
+
+
+@app_views.route("disease-detection", methods=["POST"], strict_slashes=False)
+@login_required
+def disease_detect():
+    """Render the disease detection page"""
+    file_storage_image = request.files.get("image")
+    if file_storage_image is None:
+        flash("Please upload an image", "error")
+    else:
+        filename = secure_filename(file_storage_image.filename)
+        if not filename:
+            flash("Please upload an image with a valid filename", "error")
+        else:
+            image_path = os.path.join("./", filename)
+            file_storage_image.save(image_path)
+            disease = query(image_path)
+            return jsonify({"disease": disease, "image_path": image_path})
+    return redirect(url_for("app_views.home"))

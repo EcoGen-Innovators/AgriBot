@@ -103,6 +103,18 @@ function updateLabel() {
         if (['jpg', 'jpeg', 'png'].includes(fileExtension)) {
             fileLabel.innerText = fileName;
             upError.style.display = 'none';
+            let file = new FormData();
+            file.append('image', fileInput.files[0]);
+            data = fetch("/disease-detection", {
+                method: "POST",
+                body: file
+            },
+            )
+            .then(response => response.json())
+            .catch(error => console.log(error));
+            console.log(file);
+            console.log(data);
+            
         } else {
             fileLabel.innerText = 'Choose a file';
             upError.style.display = 'block';
