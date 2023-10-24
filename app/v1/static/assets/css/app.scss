@@ -4,6 +4,8 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 // Font [Inter]
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+// Animate CSS 
+@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css");
 // Theme 
 @import url("theme.css");
 
@@ -24,12 +26,13 @@ body {
 /* Handle */
 ::-webkit-scrollbar-thumb {
     border-radius: 1rem;
-    background: #888; 
+    background: var(--cs-success); 
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: var(--cs-success);
+  opacity: .5; 
 }
 
 a {
@@ -200,24 +203,6 @@ input {
     }
 }
 
-@media (max-width: 576px) { 
-    .u-img {
-        width: 12rem;
-        height: 10rem;
-    }
-    .icon-btn-lg {
-        width: 3rem;
-        height: 3rem;
-        border-radius: .35rem;
-    }
-    .m-item {
-        display: none;
-    }
-    .f-tab .nav-link.active::after {
-        padding: 26px;
-    }
- }
-
 #otpCode {
     position: absolute;
     transform: translateX(-100%);
@@ -298,4 +283,139 @@ input {
 
 .progress {
     height: .35rem!important;
+}
+
+// Text Area Auto Expand
+.text-area-container {
+    overflow: hidden;
+    max-height: 5em; /* You can adjust the height as needed */
+  }
+  
+  .auto-expand {
+    resize: none;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-y: hidden;
+    border: 1px solid #ccc;
+    padding: 8px;
+  }
+  
+  .auto-expand:focus {
+    outline: none;
+  }
+  
+  .auto-expand:empty::before {
+    content: attr(placeholder);
+    color: #888;
+  }
+  
+  .auto-expand:not(:empty) {
+    overflow-y: auto;
+  }
+
+//  pills-chatbot
+
+#pills-chatbot {
+    #u-chat {
+        &::before {
+            content: '\F4E1';
+            font-family: bootstrap-icons !important;
+            background: var(--cs-danger);
+            color: var(--bs-white);
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 100%;
+            align-self: baseline;
+        }   
+    }
+    #ai-chat {
+        &::before {
+            content: '\F6B1';
+            font-family: bootstrap-icons !important;
+            background: var(--cs-success);
+            color: var(--bs-white);
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 100%;
+            align-self: baseline;
+        }   
+    }
+    #chatPrompt {
+        font-size: 15px;
+    }
+    #ai-btn {
+        position: fixed;
+        right: 4.5rem;
+        bottom: 2.65rem;
+        button {
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+}
+
+
+@media (max-width: 768px) { 
+    .u-img {
+        width: 12rem;
+        height: 10rem;
+    }
+    .icon-btn-lg {
+        width: 3rem;
+        height: 3rem;
+        border-radius: .35rem;
+    }
+    .m-item {
+        display: none;
+    }
+    .f-tab .nav-link.active::after {
+        padding: 26px;
+    }
+    #ai-btn {
+        position: fixed;
+        right: 4.5rem;
+        bottom: 2.65rem;
+        button {
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+ }
+
+// ! ***************************
+
+// .map-infos {
+//     display: none;
+// }
+
+#pills-afromap {
+    overflow-x: hidden;
+}
+
+.landImg img{
+    width: 10rem;
+    height: 100%;
+}
+
+.exlandImg img{
+    width: 35rem!important;
+    height: 100%;
+}
+
+.tr-5 {
+    transform: translateY(-500%);
+}
+
+.tr-n5 {
+    transform: translateX(500%);
+}
+
+.anima {
+    transition: all 1.5s ease-in;
 }
