@@ -47,6 +47,7 @@ def login():
 @app_views.route("register", methods=["POST", "GET"], strict_slashes=False)
 def register():
     """Render the registration page"""
+    from app import send_email
     if current_user.is_authenticated: # type: ignore
         return redirect(url_for("home"))
     form = RegisterForm()
@@ -66,13 +67,23 @@ def register():
         elif password != confirm:
             flash("Passwords do not match", "error")
         else:
-            user = User.query.filter_by(username=username).first()
-            if user is not None:
+            if User.query.filter_by(username=username).first() is not None:
                 flash("Username already exists", "error")
+            elif User.query.filter_by(email=email).first() is not None:
+                flash("Email already exists", "error")
             else:
                 password = hash_password(password)
                 user = User(username, email, password)
                 user.save()
+                send_email(
+                    email,
+                    "Registration successful",
+                    f"""Hi {username},
+                    Your registration was successful.
+                    Regards,
+                    Agribot Team
+                    """
+                )
                 flash("Registration successful", "success")
                 return redirect(url_for("app_views.login"))
     return render_template("register.html", title="Register", form=form)

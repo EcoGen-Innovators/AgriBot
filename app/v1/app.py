@@ -6,11 +6,13 @@ import os
 from flask import Flask, render_template
 from flask_login import LoginManager
 from flask_cors import CORS
+from flask_mail import Mail, Message
 from db import db
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
+app.config.from_pyfile('settings.py')
 login_manager = LoginManager()
 cors = CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})
 app.secret_key = "secret"
@@ -21,6 +23,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 login_manager.init_app(app)
 login_manager.login_view = "app_views.login" # type: ignore
+
+mail = Mail(app)
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -44,6 +48,17 @@ def page_not_found(e):
 
 with app.app_context():
     db.create_all()
+
+
+def send_email(to: list, subject: str, body: str):
+    """Send email"""
+    msg = Message(
+        subject,
+        recipients=[to],
+        body=body,
+        sender=app.config.get("MAIL_USERNAME")
+    )
+    mail.send(msg)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, threaded=True, debug=True)
