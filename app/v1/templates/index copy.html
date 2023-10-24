@@ -96,7 +96,7 @@
         </div>
          <div class="col h-65 h-md-100 bg-secondary rounded-4 overflow-auto">
           <div class="tab-content py-4 p-md-3 h-100" id="pills-tabContent">
-            <div class="tab-pane fade pb-4 position-relative h-100 show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+            <div class="tab-pane fade pb-4 position-relative h-100" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
               
             </div>
             <div class="tab-pane fade pb-4" id="pills-weather" role="tabpanel" aria-labelledby="pills-weather-tab" tabindex="0">
@@ -282,15 +282,16 @@
               <!-- ? Upload Pic -->
               <div class="mb-5">
                 <form>
+                  <!-- <label for="picUp" class="mb-2">Please Upload a picture to Auto-Diagnose the Plant</label> -->
                   <label for="upFile" class="hstack justify-content-center custom-file-upload w-100 vh-25">
-                      <input type="file" class="form-control" id="upFile" onchange="checkAllowedFiles()" />
-                      <div class="d-grid gap-0 text-center">
-                          <div><i class="bi bi-cloud-plus display-2 lh-0 opacity-75"></i></div>
-                          <div><small class="fs-6" id="fileLabel">Choose a file from your device storage.</small></div>
-                      </div>
+                    <input type="file" class="form-control" id="upFile" onchange="updateLabel()" />
+                   <div class="d-grid gap-0 text-center">
+                    <div><i class="bi bi-cloud-plus display-2 lh-0 opacity-75"></i></div>
+                    <div><small class="fs-6" id="fileLabel">Choose a file from your device storage.</small></div>
+                   </div>
                   </label>
                   <span class="text-danger upError" style="display: none;">Only .png, .jpg, and .jpeg are allowed</span>
-              </form>            
+                </form>
               </div>
               <!-- ? Result -->
               <div class="card bg-dark border-0">
@@ -344,11 +345,11 @@
                 </div>
               </div>
             </div>            
-            <div class="tab-pane fade h-100" id="pills-afromap" role="tabpanel" aria-labelledby="pills-afromap-tab">              
+            <div class="tab-pane fade h-100 show active" id="pills-afromap" role="tabpanel" aria-labelledby="pills-afromap-tab">              
             <div class="container h-100 d-flex align-content-between flex-wrap justify-content-center">
               <div class="row w-100 h-100 d-flex align-items-start justify-content-center flex-md-">
                 <div class="col row mb-md-3">
-                  <div class="col h-65 bg-dark p-3 order-1 my-4 my-md-0 animate__animated animate__backInLeft cic d-none">
+                  <div class="col h-65 bg-dark p-3 order-1 my-4 my-md-0">
                     <h1 class="fs-6 fw-bold text-center mb-4">Country Info Card</h1>
                     <div class="row row-cols-2 row-cols-md-1 gy-3 w-100 mx-auto" id="c-info">
                       <div class="col">
@@ -388,7 +389,7 @@
                       
                     </div>
                   </div>                            
-                  <div class="col-12 col-md-8 mx-auto order-0 order-md-2 animate__animated animate__backInRight">
+                  <div class="col-12 col-md-8 order-0 order-md-2">
                   <div class="map text-center">
                     <svg fill="#02cd98" stroke="#000000" xmlns:cc="http://web.resource.org/cc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1000 1000">
                       <g transform="matrix(1.59433, 0, 0, 1.59433, -1721.78, -693.262)">
@@ -568,6 +569,11 @@
                   </div>
                 </div>
                 </div>
+                <!-- ! *************** -->
+
+                
+
+                <!-- ! *************** -->
               </div>
             </div>
             </div>
@@ -603,7 +609,6 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../static/assets/js/weather.js"></script>
-    <script src="../static/assets/js/mp.js"></script>
     <script src="../static/assets/js/africa.js"></script>
     <script src="../static/assets/js/theme.js"></script>
     <script src="../static/assets/js/app.js"></script>

@@ -712,3 +712,39 @@ const africanCountries =
          "Country Flag": "🇲🇦/🇪🇭"
       }
 }
+
+
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+function generateText(countryCode) {
+  const country = africanCountries[countryCode];
+  if (!country) {
+      console.error('Country not found in African countries data');
+      return;
+  }
+
+  // Create the text using the country information
+  const text = `
+      Country Name: ${country["Country Name"]}
+      Calling Code: ${country["Calling Code"]}
+      Official Language: ${country["Official Language"]}
+      Capital: ${country["Capital"]}
+      Currency: ${country["Currency"]}
+      Country Flag: ${country["Country Flag"]}
+      Internet users: ${country["Internet users"]}
+      Population: ${country["Population"]}
+      Crops: ${country["ccorps"].join(", ")}
+  `;
+
+  return text;
+}
+
+// Add event listener to the "Generate Text" button
+const generateTextButton = document.getElementById('generateTextButton');
+const generatedTextDiv = document.getElementById('generatedText');
+
+generateTextButton.addEventListener('click', () => {
+  const selectedCountryCode = 'DZ'; // Change this to the desired country code
+  const generatedText = generateText(selectedCountryCode);
+  generatedTextDiv.textContent = generatedText;
+});

@@ -4,6 +4,8 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 // Font [Inter]
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+// Animate CSS 
+@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css");
 // Theme 
 @import url("theme.css");
 
@@ -386,3 +388,34 @@ input {
     }
  }
 
+// ! ***************************
+
+// .map-infos {
+//     display: none;
+// }
+
+#pills-afromap {
+    overflow-x: hidden;
+}
+
+.landImg img{
+    width: 10rem;
+    height: 100%;
+}
+
+.exlandImg img{
+    width: 35rem!important;
+    height: 100%;
+}
+
+.tr-5 {
+    transform: translateY(-500%);
+}
+
+.tr-n5 {
+    transform: translateX(500%);
+}
+
+.anima {
+    transition: all 1.5s ease-in;
+}
