@@ -35,6 +35,10 @@ a {
   color: var(--bs-primary);
 }
 
+.dropdown-item {
+  font-size: 15px;
+}
+
 .icon-btn-xs {
   width: 2rem;
   height: 2rem;
@@ -55,12 +59,14 @@ a {
   height: 7rem;
 }
 
-.icon-btn, .icon-btn-lg {
+.icon-btn,
+.icon-btn-lg {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.icon-btn i, .icon-btn-lg i {
+.icon-btn i,
+.icon-btn-lg i {
   font-size: 1.5rem;
 }
 
@@ -351,4 +357,14 @@ input {
 
 .anima {
   transition: all 1.5s ease-in;
+}
+
+#chart-container {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.offcanvas {
+  width: 100vw !important;
 }/*# sourceMappingURL=app.css.map */

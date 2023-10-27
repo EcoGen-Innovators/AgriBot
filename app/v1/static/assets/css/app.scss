@@ -4,40 +4,44 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 // Font [Inter]
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
-// Animate CSS 
+// Animate CSS
 @import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css");
-// Theme 
+// Theme
 @import url("theme.css");
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+    width: 8px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
-  border-radius: 1rem;
+    background: #f1f1f1;
+    border-radius: 1rem;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
     border-radius: 1rem;
-    background: var(--cs-success); 
+    background: var(--cs-success);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--cs-success);
-  opacity: .5; 
+    background: var(--cs-success);
+    opacity: 0.5;
 }
 
 a {
     text-decoration: none;
     color: var(--bs-primary);
+}
+
+.dropdown-item {
+    font-size: 15px;
 }
 
 .icon-btn-xs {
@@ -60,7 +64,8 @@ a {
     height: 7rem;
 }
 
-.icon-btn, .icon-btn-lg {
+.icon-btn,
+.icon-btn-lg {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -81,9 +86,9 @@ a {
     .nav-link.active {
         position: relative;
         border-radius: 0;
-        transition: all .5s ease;
+        transition: all 0.5s ease;
         &::after {
-            content: '';
+            content: "";
             border: 2px solid var(--cs-success);
             width: 100%;
             height: 100%;
@@ -106,18 +111,18 @@ a {
     display: flex;
     align-items: center;
     &::before {
-        content: '';
+        content: "";
         width: 50%;
         height: 1px;
         background: var(--bs-black);
-        margin-right: .5rem;
+        margin-right: 0.5rem;
     }
     &::after {
-        content: '';
+        content: "";
         width: 50%;
         height: 1px;
         background: var(--bs-black);
-        margin-left: .5rem;
+        margin-left: 0.5rem;
     }
 }
 
@@ -136,7 +141,7 @@ input {
     border-radius: 5px;
 }
 
-// #early-warning 
+// #early-warning
 
 /* Basic button styling */
 
@@ -144,41 +149,39 @@ input {
     box-shadow: 0 0 0 0 rgba(232, 76, 61, 0.7);
     animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
     transition: all 300ms ease-in-out;
-  }
-  
-  
-  /* Comment-out to have the button continue to pulse on mouseover */
-  .early-warning:hover {
+}
+
+/* Comment-out to have the button continue to pulse on mouseover */
+.early-warning:hover {
     animation: none;
     color: #ffffff;
-  }
-  
-  
-  /* Animation */
-  
-  @-webkit-keyframes pulsing {
+}
+
+/* Animation */
+
+@-webkit-keyframes pulsing {
     to {
-      box-shadow: 0 0 0 30px rgba(232, 76, 61, 0);
+        box-shadow: 0 0 0 30px rgba(232, 76, 61, 0);
     }
-  }
-  
-  @-moz-keyframes pulsing {
+}
+
+@-moz-keyframes pulsing {
     to {
-      box-shadow: 0 0 0 30px rgba(232, 76, 61, 0);
+        box-shadow: 0 0 0 30px rgba(232, 76, 61, 0);
     }
-  }
-  
-  @-ms-keyframes pulsing {
+}
+
+@-ms-keyframes pulsing {
     to {
-      box-shadow: 0 0 0 30px rgba(232, 76, 61, 0);
+        box-shadow: 0 0 0 30px rgba(232, 76, 61, 0);
     }
-  }
-  
-  @keyframes pulsing {
+}
+
+@keyframes pulsing {
     to {
-      box-shadow: 0 0 0 30px rgba(232, 76, 61, 0);
+        box-shadow: 0 0 0 30px rgba(232, 76, 61, 0);
     }
-  }
+}
 
 .u-img {
     width: 18rem;
@@ -186,14 +189,14 @@ input {
 }
 
 .bg-cover {
-    background-size: cover!important;
-    background-position: center!important;
-    background-repeat: no-repeat!important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
 }
 
 .overlay {
     &::before {
-        content: '';
+        content: "";
         position: absolute;
         height: 100%;
         width: 100%;
@@ -216,40 +219,39 @@ input {
     opacity: 1;
 }
 
-
-// 
+//
 .digit-group {
-	input {
-		width: 3rem;
-		height: 3rem;
-		background-color: transparent;
-		// border: 1px solid;
-		line-height: 50px;
-		text-align: center;
-		font-size: 24px;
-	}
+    input {
+        width: 3rem;
+        height: 3rem;
+        background-color: transparent;
+        // border: 1px solid;
+        line-height: 50px;
+        text-align: center;
+        font-size: 24px;
+    }
 
-	.splitter {
-		padding: 0 .5rem;
-		font-size: 24px;
-	}
+    .splitter {
+        padding: 0 0.5rem;
+        font-size: 24px;
+    }
 }
 
 .dot {
     &::before {
-        content: '•';
+        content: "•";
     }
 }
 
 .p-name,
 .p-cauz {
-    margin: 0 .25rem;
+    margin: 0 0.25rem;
 }
 
 .p-name {
     &::before {
-        content: 'Name:';       
-        margin-right: .25rem;
+        content: "Name:";
+        margin-right: 0.25rem;
         color: var(--bs-gray-600);
         font-weight: bold;
     }
@@ -257,8 +259,8 @@ input {
 
 .p-cause {
     &::before {
-        content: 'Cause:';       
-        margin-right: .25rem;
+        content: "Cause:";
+        margin-right: 0.25rem;
         color: var(--bs-gray-600);
         font-weight: bold;
     }
@@ -273,52 +275,52 @@ input {
 }
 
 .custom-file-upload:hover {
-    background-color: rgba(255, 255, 255, .1);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Make sure the actual input element is hidden */
 #upFile {
     display: none;
-} 
+}
 
 .progress {
-    height: .35rem!important;
+    height: 0.35rem !important;
 }
 
 // Text Area Auto Expand
 .text-area-container {
     overflow: hidden;
     max-height: 5em; /* You can adjust the height as needed */
-  }
-  
-  .auto-expand {
+}
+
+.auto-expand {
     resize: none;
     width: 100%;
     box-sizing: border-box;
     overflow-y: hidden;
     border: 1px solid #ccc;
     padding: 8px;
-  }
-  
-  .auto-expand:focus {
+}
+
+.auto-expand:focus {
     outline: none;
-  }
-  
-  .auto-expand:empty::before {
+}
+
+.auto-expand:empty::before {
     content: attr(placeholder);
     color: #888;
-  }
-  
-  .auto-expand:not(:empty) {
+}
+
+.auto-expand:not(:empty) {
     overflow-y: auto;
-  }
+}
 
 //  pills-chatbot
 
 #pills-chatbot {
     #u-chat {
         &::before {
-            content: '\F4E1';
+            content: "\F4E1";
             font-family: bootstrap-icons !important;
             background: var(--cs-danger);
             color: var(--bs-white);
@@ -329,11 +331,11 @@ input {
             align-items: center;
             border-radius: 100%;
             align-self: baseline;
-        }   
+        }
     }
     #ai-chat {
         &::before {
-            content: '\F6B1';
+            content: "\F6B1";
             font-family: bootstrap-icons !important;
             background: var(--cs-success);
             color: var(--bs-white);
@@ -344,7 +346,7 @@ input {
             align-items: center;
             border-radius: 100%;
             align-self: baseline;
-        }   
+        }
     }
     #chatPrompt {
         font-size: 15px;
@@ -360,8 +362,7 @@ input {
     }
 }
 
-
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
     .u-img {
         width: 12rem;
         height: 10rem;
@@ -369,7 +370,7 @@ input {
     .icon-btn-lg {
         width: 3rem;
         height: 3rem;
-        border-radius: .35rem;
+        border-radius: 0.35rem;
     }
     .m-item {
         display: none;
@@ -386,7 +387,7 @@ input {
             height: 2rem;
         }
     }
- }
+}
 
 // ! ***************************
 
@@ -398,13 +399,13 @@ input {
     overflow-x: hidden;
 }
 
-.landImg img{
+.landImg img {
     width: 10rem;
     height: 100%;
 }
 
-.exlandImg img{
-    width: 35rem!important;
+.exlandImg img {
+    width: 35rem !important;
     height: 100%;
 }
 
@@ -418,4 +419,18 @@ input {
 
 .anima {
     transition: all 1.5s ease-in;
+}
+
+//
+
+#chart-container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+// ! Tools
+
+.offcanvas {
+    width: 100vw!important;
 }

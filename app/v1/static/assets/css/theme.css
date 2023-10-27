@@ -31,13 +31,10 @@
   border-color: var(--cs-success);
 }
 
-.bi::before, [class^=bi-]::before, [class*=" bi-"]::before {
+.bi::before,
+[class^=bi-]::before,
+[class*=" bi-"]::before {
   vertical-align: -0.2rem;
-}
-
-.btn:hover {
-  background-color: var(--bs-black);
-  opacity: 0.8;
 }
 
 .vh-50 {
