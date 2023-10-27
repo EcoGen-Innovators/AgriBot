@@ -80,20 +80,9 @@ const digitGroups = document.querySelectorAll('.digit-group input');
 
 
 
-// ? Upload Files
-function updateLabel() {
+function checkAllowedFiles() {
     const fileInput = document.getElementById('upFile');
-    const fileLabel = document.getElementById('upFile');
-    if (fileInput.files.length > 0) {
-        fileLabel.textContent = fileInput.files[0].name;
-    } else {
-        fileLabel.textContent = "Choose a file";
-    }
-}
-// ? Allowed Files
-function updateLabel() {
-    const fileInput = document.getElementById('upFile');
-    const fileLabel = document.getElementById('fileLabel');
+    const fileLabel = document.getElementById('fileLabel'); // Make sure this ID matches the one in your HTML
     const upError = document.querySelector('.upError');
 
     if (fileInput.files.length > 0) {
@@ -103,18 +92,6 @@ function updateLabel() {
         if (['jpg', 'jpeg', 'png'].includes(fileExtension)) {
             fileLabel.innerText = fileName;
             upError.style.display = 'none';
-            let file = new FormData();
-            file.append('image', fileInput.files[0]);
-            data = fetch("/disease-detection", {
-                method: "POST",
-                body: file
-            },
-            )
-            .then(response => response.json())
-            .catch(error => console.log(error));
-            console.log(file);
-            console.log(data);
-            
         } else {
             fileLabel.innerText = 'Choose a file';
             upError.style.display = 'block';
@@ -126,7 +103,6 @@ function updateLabel() {
         upError.style.display = 'none';
     }
 }
-
 
 // ? Reset PW
 // Get references to the divs and the button
