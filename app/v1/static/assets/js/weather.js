@@ -1,3 +1,4 @@
+
 const apiKey = '1b731c5ea8595d02eb473392ea79108b';
 let hourlyTemperatureChart;
 
@@ -111,6 +112,30 @@ document.getElementById('searchBtn').addEventListener('click', () => {
     }
 });
 
+// Function to get sunrise and sunset times based on location
+function getSunriseAndSunset(lat, lon) {
+    // Construct the URL for the sunrise-sunset.org API
+    const apiUrl = `https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lon}&formatted=0`;
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            const sunrise = new Date(data.results.sunrise);
+            const sunset = new Date(data.results.sunset);
+
+            // Convert the sunrise and sunset times to a readable format
+            const sunriseTime = sunrise.toLocaleTimeString();
+            const sunsetTime = sunset.toLocaleTimeString();
+
+            // Display the sunrise and sunset times on the webpage
+            document.getElementById('sunriseTime').textContent = `${sunriseTime}`;
+            document.getElementById('sunsetTime').textContent = `${sunsetTime}`;
+        })
+        .catch(error => {
+            console.error('Error fetching sunrise and sunset times:', error);
+        });
+}
+
 // Function to auto-detect the location and fetch weather data
 function autoDetectLocationAndFetchWeather() {
     if ('geolocation' in navigator) {
@@ -125,6 +150,9 @@ function autoDetectLocationAndFetchWeather() {
                     const city = data.address.city;
                     fetchWeather(city);
                     fetchHourlyWeather(city);
+
+                    // Fetch sunrise and sunset times based on the detected location
+                    getSunriseAndSunset(lat, lon);
                 })
                 .catch(error => {
                     console.error('Error fetching city name:', error);
@@ -134,6 +162,30 @@ function autoDetectLocationAndFetchWeather() {
         alert('Geolocation is not supported in your browser.');
     }
 }
+
+// // Function to auto-detect the location and fetch weather data
+// function autoDetectLocationAndFetchWeather() {
+//     if ('geolocation' in navigator) {
+//         navigator.geolocation.getCurrentPosition(position => {
+//             const lat = position.coords.latitude;
+//             const lon = position.coords.longitude;
+
+//             // Fetch the city name based on coordinates using reverse geocoding
+//             fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`)
+//                 .then(response => response.json())
+//                 .then(data => {
+//                     const city = data.address.city;
+//                     fetchWeather(city);
+//                     fetchHourlyWeather(city);
+//                 })
+//                 .catch(error => {
+//                     console.error('Error fetching city name:', error);
+//                 });
+//         });
+//     } else {
+//         alert('Geolocation is not supported in your browser.');
+//     }
+// }
 
 // Load weather data from localStorage (if available)
 const storedWeatherData = localStorage.getItem('weatherData');
@@ -149,3 +201,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Add an event listener for the "Auto Detect" button
 document.getElementById('autoDetect').addEventListener('click', autoDetectLocationAndFetchWeather);
+
+// ! ********************************
+

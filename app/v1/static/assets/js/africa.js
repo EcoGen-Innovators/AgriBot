@@ -716,35 +716,44 @@ const africanCountries =
 
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-function generateText(countryCode) {
-  const country = africanCountries[countryCode];
-  if (!country) {
-      console.error('Country not found in African countries data');
-      return;
-  }
 
-  // Create the text using the country information
-  const text = `
-      Country Name: ${country["Country Name"]}
-      Calling Code: ${country["Calling Code"]}
-      Official Language: ${country["Official Language"]}
-      Capital: ${country["Capital"]}
-      Currency: ${country["Currency"]}
-      Country Flag: ${country["Country Flag"]}
-      Internet users: ${country["Internet users"]}
-      Population: ${country["Population"]}
-      Crops: ${country["ccorps"].join(", ")}
-  `;
+// Function to generate country information text
+function generateCountryInfoText(country) {
+  let text = `Country Name: ${country["Country Name"]}\n`;
+  text += `Capital: ${country["Capital"]}\n`;
+  text += `Official Language: ${country["Official Language"]}\n`;
+  text += `Currency: ${country["Currency"]}\n`;
+  text += `Country Flag: ${country["Country Flag"]}\n`;
+  text += `Internet users: ${country["Internet users"]}\n`;
+  text += `Population: ${country["Population"]}\n`;
+  text += `Main Crops: ${country["ccorps"].join(", ")}\n`;
 
   return text;
 }
 
-// Add event listener to the "Generate Text" button
-const generateTextButton = document.getElementById('generateTextButton');
-const generatedTextDiv = document.getElementById('generatedText');
+async function updateCountryInfo(countryCode) {
+  // Reset the flag-img source
+  document.querySelector('#flag-img').src = '';
 
-generateTextButton.addEventListener('click', () => {
-  const selectedCountryCode = 'DZ'; // Change this to the desired country code
-  const generatedText = generateText(selectedCountryCode);
-  generatedTextDiv.textContent = generatedText;
-});
+  // Get country info from African countries data
+  const country = africanCountries[countryCode];
+  if (!country) {
+    console.error('Country not found in African countries data');
+    return;
+  }
+
+  // Generate country information text
+  const countryInfoText = generateCountryInfoText(country);
+
+  // Update country information
+  document.querySelector('#country-info').textContent = countryInfoText;
+
+  // Load and set the flag image from the new JSON data
+  const flagsData = await loadFlags();
+  const flagPath = flagsData.find((item) => item.code === countryCode)?.image;
+  if (flagPath) {
+    document.querySelector('#flag-img').src = flagPath;
+    document.querySelector('#flag-img').style.display = "block";
+    document.querySelector('#flag_na').style.display = "none";
+  }
+}

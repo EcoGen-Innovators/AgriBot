@@ -157,6 +157,24 @@ textarea.addEventListener("input", function () {
   }
 });
 
+// ? Type Writer effect
+const text = "Welcome back to your workspace, we missed You!";
+const textContainer = document.getElementById("typewriter-text");
+
+let speed = 50; // Typing speed in milliseconds
+let index = 0;
+
+function typeWriter() {
+    if (index < text.length) {
+        textContainer.innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeWriter, speed);
+    }
+}
+
+typeWriter();
+
+
 
 // ? Reset PW
 // Get references to the divs and the button
@@ -191,4 +209,3 @@ tglRpw.addEventListener('click', function () {
 window.addEventListener('load', function () {
   digit1.focus();
 });
-
