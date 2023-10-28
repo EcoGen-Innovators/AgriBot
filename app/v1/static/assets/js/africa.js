@@ -1,3 +1,4 @@
+
 const endpoint = 'https://restcountries.eu/rest/v3/';
 const flagsEndpoint = '../static/assets/js/flag.json'; 
 // Function to load flags.json
@@ -38,9 +39,11 @@ async function updateCountryInfo(countryCode) {
   const flagPath = flagsData.find((item) => item.code === countryCode)?.image;
   if (flagPath) {
     document.querySelector('#flag-img').src = flagPath;
-    document.querySelector('#flag-img').style.display="block";
-    document.querySelector('#flag_na').style.display="none";
+    // document.querySelector('#flag-img').classList.add("d-block");
+    // document.querySelector('#flag_na').classList.add("d-none");
   }
+
+  generateCropChart(africanCountries[countryCode]);
 }
 
 // Function to handle country clicks
@@ -72,6 +75,67 @@ document.querySelectorAll('.st0').forEach(item => {
     updateCountryInfo(countryID);
   });
 });
+
+function generateCropChart(country) {
+  // Get the top 10 crops from the "ccorps" property
+  const crops = country.ccorps.slice(0, 10);
+  
+  // Get the names of the crops
+  const cropNames = crops.map(crop => crop);
+
+  // Check if normalized crop data is saved in localStorage
+  let cropData = JSON.parse(localStorage.getItem('normalizedCropData'));
+
+  if (!cropData) {
+    // If not, generate new random data
+    cropData = crops.map(() => Math.floor(Math.random() * 100));
+
+    // Calculate the total of the random data
+    const total = cropData.reduce((acc, val) => acc + val, 0);
+
+    // Normalize the data to make the total 100%
+    cropData = cropData.map(val => (val / total) * 100);
+
+    // Save the normalized data to localStorage
+    localStorage.setItem('normalizedCropData', JSON.stringify(cropData));
+  }
+
+  // Get the canvas element
+  const ctx = document.getElementById('crop-chart').getContext('2d');
+
+  // Create the chart
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: cropNames,
+      datasets: [{
+        label: 'Crops',
+        data: cropData,
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 0.4
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: 'Quantity'
+          }
+        },
+        x: {
+          title: {
+            display: true,
+            text: 'Crops'
+          }
+        }
+      }
+    }
+  });
+}
+
 
 //
 const africanCountries = 
@@ -711,49 +775,4 @@ const africanCountries =
          "Currency": "Sahrawi peseta, Moroccan dirham",
          "Country Flag": "🇲🇦/🇪🇭"
       }
-}
-
-
-
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-// Function to generate country information text
-function generateCountryInfoText(country) {
-  let text = `Country Name: ${country["Country Name"]}\n`;
-  text += `Capital: ${country["Capital"]}\n`;
-  text += `Official Language: ${country["Official Language"]}\n`;
-  text += `Currency: ${country["Currency"]}\n`;
-  text += `Country Flag: ${country["Country Flag"]}\n`;
-  text += `Internet users: ${country["Internet users"]}\n`;
-  text += `Population: ${country["Population"]}\n`;
-  text += `Main Crops: ${country["ccorps"].join(", ")}\n`;
-
-  return text;
-}
-
-async function updateCountryInfo(countryCode) {
-  // Reset the flag-img source
-  document.querySelector('#flag-img').src = '';
-
-  // Get country info from African countries data
-  const country = africanCountries[countryCode];
-  if (!country) {
-    console.error('Country not found in African countries data');
-    return;
-  }
-
-  // Generate country information text
-  const countryInfoText = generateCountryInfoText(country);
-
-  // Update country information
-  document.querySelector('#country-info').textContent = countryInfoText;
-
-  // Load and set the flag image from the new JSON data
-  const flagsData = await loadFlags();
-  const flagPath = flagsData.find((item) => item.code === countryCode)?.image;
-  if (flagPath) {
-    document.querySelector('#flag-img').src = flagPath;
-    document.querySelector('#flag-img').style.display = "block";
-    document.querySelector('#flag_na').style.display = "none";
-  }
 }

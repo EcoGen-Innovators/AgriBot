@@ -362,6 +362,21 @@ input {
     }
 }
 
+#pills-home {
+    &::before {
+        content: '';
+        position: absolute;
+        height: 50vh;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        background: url('../img/farm.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}
+
 @media (max-width: 768px) {
     .u-img {
         width: 12rem;
@@ -434,3 +449,5 @@ input {
 .offcanvas {
     width: 100vw!important;
 }
+
+
