@@ -78,43 +78,6 @@ const digitGroups = document.querySelectorAll('.digit-group input');
         });
 });
 
-
-
-// // ? Upload Files
-// function updateLabel() {
-//     const fileInput = document.getElementById('upFile');
-//     const fileLabel = document.getElementById('upFile');
-//     if (fileInput.files.length > 0) {
-//         fileLabel.textContent = fileInput.files[0].name;
-//     } else {
-//         fileLabel.textContent = "Choose a file";
-//     }
-// }
-// // ? Allowed Files
-// function updateLabel() {
-//     const fileInput = document.getElementById('upFile');
-//     const fileLabel = document.getElementById('fileLabel');
-//     const upError = document.querySelector('.upError');
-
-//     if (fileInput.files.length > 0) {
-//         const fileName = fileInput.files[0].name;
-//         const fileExtension = fileName.split('.').pop().toLowerCase();
-
-//         if (['jpg', 'jpeg', 'png'].includes(fileExtension)) {
-//             fileLabel.innerText = fileName;
-//             upError.style.display = 'none';
-//         } else {
-//             fileLabel.innerText = 'Choose a file';
-//             upError.style.display = 'block';
-//             upError.innerText = 'Only .png, .jpg, and .jpeg are allowed';
-//             fileInput.value = ''; // Clear the file input
-//         }
-//     } else {
-//         fileLabel.innerText = 'Choose a file';
-//         upError.style.display = 'none';
-//     }
-// }
-
 function checkAllowedFiles() {
     const fileInput = document.getElementById('upFile');
     const fileLabel = document.getElementById('fileLabel'); // Make sure this ID matches the one in your HTML
