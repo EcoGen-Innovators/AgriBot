@@ -375,37 +375,33 @@
                             <!-- ? Upload Pic -->
                             <div class="mb-5">
                                 <form>
-                                    <label for="upFile" class="hstack justify-content-center custom-file-upload w-100 vh-25">
-                                        <input type="file" class="form-control" id="upFile" onchange="checkAllowedFiles()" />
-                                        <div class="d-grid gap-0 text-center">
-                                            <div><i class="bi bi-cloud-plus display-2 lh-0 opacity-75"></i></div>
-                                            <div><small class="fs-6" id="fileLabel">Choose a file from your device storage.</small></div>
-                                        </div>
-                                    </label>
-                                    <span class="text-danger upError" style="display: none;">Only .png, .jpg, and .jpeg are allowed</span>
+                                    <input type="file" class="custom-file-upload" id="upFile" accept=".jpg, .jpeg, .png" onchange="processFile()">
+                                    <label id="fileLabel">Choose a file</label>
+                                    <div class="upError" style="display: none;"></div>
                                 </form>
                             </div>
+
+
                             <!-- ? Result -->
-                            <div class="card bg-dark border-0">
-                                <div class="card-body">
-                                    <div class="alrt text-danger">
+                            <div class="card bg-dark border-0" id="result">
+                                <div class="card-body d-non">
+                                    <!-- <div class="alrt text-danger">
                                         <span class="me-1 early-warning rounded-circle p-1"><i class="bi bi-exclamation-triangle-fill fs-5"></i></span>
                                         <span class="fs-6">Disease Found!</span>
                                     </div>
                                     <div class="alrt text-success">
                                         <span class="me-2"><i class="bi bi-shield-fill-check fs-5"></i></span>
                                         <span class="fs-6">No Disease Found!, your plant is <span class="fw-bold">SAFE</span>.</span>
-                                    </div>
+                                    </div> -->
                                     <div class="d-grid gap-3 my-3">
                                         <div class="mb-1">
-                                            <span class="p-name">Phytophthora</span>
+                                            <span class="p-name" id="diseaseName"></span>
                                             <span class="dot"></span>
-                                            <span class="p-cause">Lorem ipsum dolor sit.</span>
+                                            <span class="p-cause"></span>
                                         </div>
+                                        <p><strong>Image Path:</strong> <span id="imagePath"></span></p>
                                         <div class="fs-6 text-justify lh-2 mb-3">
-                                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur laborum, error eos culpa, eum doloremque explicabo adipisci aspernatur perspiciatis nobis sunt! Natus modi reprehenderit
-                                            quisquam, eaque ut consequuntur exercitationem aspernatur provident quod asperiores odit magnam expedita ea tempora dicta aut. Veniam autem fuga, perspiciatis deleniti provident aut mollitia ab
-                                            ea.
+                                           
                                         </div>
                                         <div class="perc">
                                             <div class="hstack justify-content-between mb-1">
@@ -436,6 +432,9 @@
                                         </div>
                                     </div>
                                 </div>
+                               
+
+                               
                             </div>
                         </div>
                         <div class="tab-pane fade h-100" id="pills-afromap" role="tabpanel" aria-labelledby="pills-afromap-tab">

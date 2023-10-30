@@ -78,39 +78,124 @@ const digitGroups = document.querySelectorAll('.digit-group input');
         });
 });
 
-function checkAllowedFiles() {
+// async function processFile() {
+//     const fileInput = document.getElementById('upFile');
+//     const fileLabel = document.getElementById('fileLabel');
+//     const upError = document.querySelector('.upError');
+
+//     if (fileInput.files.length > 0) {
+//         const fileName = fileInput.files[0].name;
+//         fileLabel.innerText = fileName;
+//         upError.style.display = 'none';
+//         let file = new FormData();
+//         file.append('image', fileInput.files[0]);
+
+//         try {
+//             const response = await fetch("/disease-detection", {
+//                 method: "POST",
+//                 body: file
+//             });
+
+//             if (response.ok) {
+//                 const data = await response.json();
+//                 console.log(data);
+//             } else {
+//                 throw new Error('Network response was not ok');
+//             }
+//         } catch (error) {
+//             console.error(error);
+//         }
+//     } else {
+//         fileLabel.innerText = 'Choose a file';
+//         upError.style.display = 'none';
+//     }
+// }
+
+
+// async function processFile() {
+//     const fileInput = document.getElementById('upFile');
+//     const fileLabel = document.getElementById('fileLabel');
+//     const upError = document.querySelector('.upError');
+
+//     if (fileInput.files.length > 0) {
+//         const fileName = fileInput.files[0].name;
+//         fileLabel.innerText = fileName;
+//         upError.style.display = 'none';
+//         let file = new FormData();
+//         file.append('image', fileInput.files[0]);
+
+//         try {
+//             const response = await fetch("/disease-detection", {
+//                 method: "POST",
+//                 body: file
+//             });
+
+//             if (response.ok) {
+//                 const data = await response.json();
+//                 console.log(data);
+
+//                 // Access the disease and image_path properties
+//                 const diseaseInfo = data.disease;
+//                 const imagePath = data.image_path;
+
+//                 // Do something with the data, for example, display it on the page
+//                 // For demonstration, let's display the disease name and image path
+//                 alert(`Disease: ${diseaseInfo.name}\nImage Path: ${imagePath}`);
+//             } else {
+//                 throw new Error('Network response was not ok');
+//             }
+//         } catch (error) {
+//             console.error(error);
+//         }
+//     } else {
+//         fileLabel.innerText = 'Choose a file';
+//         upError.style.display = 'none';
+//     }
+// }
+
+
+async function processFile() {
     const fileInput = document.getElementById('upFile');
-    const fileLabel = document.getElementById('fileLabel'); // Make sure this ID matches the one in your HTML
+    const fileLabel = document.getElementById('fileLabel');
     const upError = document.querySelector('.upError');
+    const resultDiv = document.getElementById('result');
+    const diseaseNameSpan = document.getElementById('diseaseName');
+    const imagePathSpan = document.getElementById('imagePath');
 
     if (fileInput.files.length > 0) {
         const fileName = fileInput.files[0].name;
-        const fileExtension = fileName.split('.').pop().toLowerCase();
+        fileLabel.innerText = fileName;
+        upError.style.display = 'none';
+        let file = new FormData();
+        file.append('image', fileInput.files[0]);
 
-        if (['jpg', 'jpeg', 'png'].includes(fileExtension)) {
-            fileLabel.innerText = fileName;
-            upError.style.display = 'none';
-            let file = new FormData();
-            file.append('image', fileInput.files[0]);
-            data = fetch("/disease-detection", {
+        try {
+            const response = await fetch("/disease-detection", {
                 method: "POST",
                 body: file
-            },
-            )
-            .then(response => response.json())
-            .catch(error => console.log(error));
-            console.log(file);
-            console.log(data);
-            
-        } else {
-            fileLabel.innerText = 'Choose a file';
-            upError.style.display = 'block';
-            upError.innerText = 'Only .png, .jpg, and .jpeg are allowed';
-            fileInput.value = ''; // Clear the file input
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log(data);
+
+                const diseaseInfo = data.disease;
+                const imagePath = data.image_path;
+
+                // Display the results on the page
+                diseaseNameSpan.innerText = diseaseInfo.name;
+                imagePathSpan.innerText = imagePath;
+                resultDiv.style.display = 'block';
+            } else {
+                throw new Error('Network response was not ok');
+            }
+        } catch (error) {
+            console.error(error);
         }
     } else {
         fileLabel.innerText = 'Choose a file';
         upError.style.display = 'none';
+        resultDiv.style.display = 'none';
     }
 }
 

@@ -233,10 +233,6 @@ input {
 }
 
 /* Make sure the actual input element is hidden */
-#upFile {
-  display: none;
-}
-
 .progress {
   height: 0.35rem !important;
 }
