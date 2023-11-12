@@ -1,7 +1,7 @@
 import requests
 
 API_URL = "https://api-inference.huggingface.co/models/linkanjarad/mobilenet_v2_1.0_224-plant-disease-identification"
-headers = {"Authorization": "Bearer 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"}
+headers = {"Authorization": "Token"}
 
 def query(filename):
     with open(filename, "rb") as f:
